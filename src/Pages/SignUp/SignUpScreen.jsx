@@ -9,12 +9,15 @@ export default function SignUpScreen(){
     <Logo/>
     <S.ContainerInputs>
         <S.InputName type="text" placeholder="Name" ></S.InputName>
-        <S.ContainerInputsCity></S.ContainerInputsCity>
+        <S.ContainerInputsCity>
+            <S.InputCity type="text" placeholder="City" ></S.InputCity>
+            <S.InputCountry type="text" placeholder="Country" ></S.InputCountry>
+        </S.ContainerInputsCity>
         <S.InputEmail type="text" placeholder="Email" ></S.InputEmail>
         <S.InputPassword type="password" placeholder="Password"></S.InputPassword>
-        <S.LoginButton>Entrar</S.LoginButton>
-        <Link to="/sign-up" >
-        <S.SendToSignUp>Nao tem conta?Cadastre-se</S.SendToSignUp>
+        <S.SignUpButton>Entrar</S.SignUpButton>
+        <Link to="/" >
+        <S.SendToLogin>Ja tem conta?Entre!</S.SendToLogin>
         </Link>
      </S.ContainerInputs>
     
