@@ -3,17 +3,17 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 import appContext from "../../Contexts/AppContext.js"
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 export default function NavBarr(){
+    const navigate=useNavigate()
       
-    const {setView , view , viewNavBarr , setViewNavBarr }= useContext(appContext)
+    const {setView , view , viewNavBarr , setViewNavBarr , setAppear , appear , setDesappear , desappear }= useContext(appContext)
 
    
     function openCloseSideBarr(){
-        console.log("oi")
-        console.log(view)
-        console.log(viewNavBarr)
+     
         if(view === false && viewNavBarr==="list-outline"){
             setView(true)
             setViewNavBarr("return-down-back-outline")
@@ -23,13 +23,37 @@ export default function NavBarr(){
         }
         
     }
-   
+   function logout(){
+
+    setView(false)
+    setViewNavBarr("list-outline")
+    navigate('/')
+   }
+
+   function goHome(){
+    setAppear(false)
+    setDesappear(true)
+    setView(false)
+    setViewNavBarr("list-outline")
+    navigate('/home')
+   }
+
     return(<>
     <S.ContainerNavBarr>
+    <S.Separe>
+       
     <ion-icon onClick={openCloseSideBarr} name={viewNavBarr}></ion-icon>
-    <Link to="/" >
-    <ion-icon name="exit-outline"></ion-icon>
-    </Link>
+    
+    </S.Separe>
+    <S.SepareTwo>  
+        <S.Back  appear={appear}>
+        <ion-icon onClick={goHome} name="chevron-back-outline"></ion-icon>
+        </S.Back>
+
+        <S.Out desappear={desappear}>
+        <ion-icon  onClick={logout} name="exit-outline"></ion-icon>
+        </S.Out>
+    </S.SepareTwo>
     </S.ContainerNavBarr>
     </>)
 }

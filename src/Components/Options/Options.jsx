@@ -4,15 +4,19 @@ import sagrada from "../../img/sagradafamilia.jpg"
 import paella from "../../img/paella.jpeg"
 import plaza from "../../img/plaza_catalunya.jpg"
 import font from "../../img/font.jpg"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+import appContext from "../../Contexts/AppContext.js"
 
  function OneOption({id , image , name}){
+    const {setView , view , viewNavBarr , setViewNavBarr , setAppear , appear , setDesappear , desappear }= useContext(appContext)
     const navigate=useNavigate()
     function chooseOption(){
        
       navigate(`/home/${id}`)
+      setAppear(true)
+      setDesappear(false)
     }
     return(
         <S.ContainerOption>
@@ -27,7 +31,7 @@ import { useNavigate } from "react-router-dom"
 
 export default function Options(){
    
-    const [choose , setChoose]=useState()
+
 
     const optionsArray=[
         {id:1,
