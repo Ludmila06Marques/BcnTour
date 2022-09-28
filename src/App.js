@@ -10,6 +10,7 @@ import ProfileScreen from "./Pages/Profile/ProfileScreen.jsx"
 import AboutUsScreen from "./Pages/AboutUsScreen.js"
 import SettingsScreen from "./Pages/SettingsScreen.js"
 import HelpScreen from "./Pages/HelpScreen.js"
+import PublishScreen from "./Pages/Publish/PublishScreen.jsx"
 
 export default function App(){
     
@@ -41,6 +42,7 @@ export default function App(){
         <Route  path="/settings" element={<SettingsScreen/>}></Route> 
         <Route  path="/aboutUs" element={<AboutUsScreen/>}></Route> 
         <Route  path="/help" element={<HelpScreen/>}></Route> 
+        <Route  path="/publish" element={<PublishScreen/>}></Route> 
         
 
     </Routes>    

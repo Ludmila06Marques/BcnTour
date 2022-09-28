@@ -16,8 +16,9 @@ export default function SignUpScreen(){
         <S.InputImage type="url" placeholder="Sua melhor foto" ></S.InputImage>
         <S.InputEmail type="text" placeholder="Email" ></S.InputEmail>
         <S.InputPassword type="password" placeholder="Password"></S.InputPassword>
-
+        <Link to="/" >
         <S.SignUpButton>Cadastrar</S.SignUpButton>
+        </Link>
         <Link to="/" >
         <S.SendToLogin>Ja tem conta?Entre!</S.SendToLogin>
         </Link>
