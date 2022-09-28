@@ -15,7 +15,7 @@ export default function SignUpScreen(){
         </S.ContainerInputsCity>
         <S.InputEmail type="text" placeholder="Email" ></S.InputEmail>
         <S.InputPassword type="password" placeholder="Password"></S.InputPassword>
-        <S.SignUpButton>Entrar</S.SignUpButton>
+        <S.SignUpButton>Cadastrar</S.SignUpButton>
         <Link to="/" >
         <S.SendToLogin>Ja tem conta?Entre!</S.SendToLogin>
         </Link>

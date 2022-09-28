@@ -5,18 +5,15 @@ import { useContext } from "react"
 
 export default function SideBarr(){
       
-    const {setView , view }= useContext(appContext)
-    function closeSideBarr(){
-        setView(false)
-    }
-
+    const { view  }= useContext(appContext)
+ 
 
 
   
     return(<>
     <S.ContainerSideBarr view={view} >
 
-    <ion-icon onClick={closeSideBarr} name="return-down-back-outline"></ion-icon>
+  
     </S.ContainerSideBarr>
     </>)
 }

@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerNavBarr=styled.div`
-position: absolute;
-z-index: 2;
+opacity: 1;
 display: flex;
 justify-content: space-between;
 padding: 15px;
