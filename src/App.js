@@ -15,13 +15,14 @@ export default function App(){
     const [token , setToken]=useState()
     //const [login , setLogin]=useState()
     const [view , setView]=useState(false)
+    const[viewNavBarr , setViewNavBarr]=useState("list-outline")
     //const [home  , setHome]=useState("")
 
 
 
     return(<>
     
-    <appContext.Provider value={{email , setEmail , password , setPassword ,view , setView , name , setName , token , setToken  }} >
+    <appContext.Provider value={{email , setEmail , password , setPassword ,view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken  }} >
     <BrowserRouter>
     <Routes>
         
