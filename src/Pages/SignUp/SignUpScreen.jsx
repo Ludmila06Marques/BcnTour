@@ -13,8 +13,10 @@ export default function SignUpScreen(){
             <S.InputCity type="text" placeholder="City" ></S.InputCity>
             <S.InputCountry type="text" placeholder="Country" ></S.InputCountry>
         </S.ContainerInputsCity>
+        <S.InputImage type="url" placeholder="Sua melhor foto" ></S.InputImage>
         <S.InputEmail type="text" placeholder="Email" ></S.InputEmail>
         <S.InputPassword type="password" placeholder="Password"></S.InputPassword>
+
         <S.SignUpButton>Cadastrar</S.SignUpButton>
         <Link to="/" >
         <S.SendToLogin>Ja tem conta?Entre!</S.SendToLogin>

@@ -46,6 +46,15 @@ border-radius: 8px;
 border: solid 1px #94a5cb;
 padding: 10px;
 `
+export const InputImage=styled.input`
+width: 256px;
+height: 45px;
+border-radius: 8px;
+border-radius: 8px;
+margin-bottom: 10px;
+border: solid 1px #94a5cb;
+padding: 10px;
+`
 export const ContainerInputs=styled.div`
 display: flex;
 flex-direction: column;
