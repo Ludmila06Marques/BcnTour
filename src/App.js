@@ -3,7 +3,7 @@ import appContext from "./Contexts/AppContext.js"
 import { useState } from "react"
 import LoginScreen from "./Pages/Login/LoginScreen.jsx"
 import SignUpScreen from "./Pages/SignUp/SignUpScreen.jsx"
-import HomeScreen from "./Pages/HomeScreen.js"
+import HomeScreen from "./Pages/Home/HomeScreen.jsx"
 import OptionScreen from "./Pages/OptionScreen.js"
 import ChooseScreen from "./Pages/ChooseScreen.js"
 
@@ -14,14 +14,14 @@ export default function App(){
    const [name , setName]=useState("")
     const [token , setToken]=useState()
     //const [login , setLogin]=useState()
-    //const [view , setView]=useState("password")
+    const [view , setView]=useState(false)
     //const [home  , setHome]=useState("")
 
 
 
     return(<>
     
-    <appContext.Provider value={{email , setEmail , password , setPassword , name , setName , token , setToken  }} >
+    <appContext.Provider value={{email , setEmail , password , setPassword ,view , setView , name , setName , token , setToken  }} >
     <BrowserRouter>
     <Routes>
         

@@ -9,7 +9,9 @@ export default function LoginScreen(){
     <S.ContainerInputs>
         <S.InputEmail type="text" placeholder="Email" ></S.InputEmail>
         <S.InputPassword type="password" placeholder="Password"></S.InputPassword>
+        <Link to="/home" >
         <S.LoginButton>Entrar</S.LoginButton>
+        </Link>
         <Link to="/sign-up" >
         <S.SendToSignUp>Nao tem conta?Cadastre-se</S.SendToSignUp>
         </Link>
