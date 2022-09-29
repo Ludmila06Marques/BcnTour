@@ -15,4 +15,7 @@ ion-icon{
   
 
 }
+:hover{
+  cursor: pointer;
+}
 `

@@ -21,6 +21,9 @@ export const Separe=styled.div`
 display: flex;
 
 align-items: center;
+:hover{
+  cursor: pointer;
+}
 `
 
 export const SepareTwo=styled.div`
@@ -28,7 +31,13 @@ display: flex;
 `
 export const Back=styled.div`
 display: ${props => props.appear ? "flex": "none"};
+:hover{
+  cursor: pointer;
+}
 `
 export const Out=styled.div`
 display: ${props => props.desappear ? "flex": "none"};
+:hover{
+  cursor: pointer;
+}
 `

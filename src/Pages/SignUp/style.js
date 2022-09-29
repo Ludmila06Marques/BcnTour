@@ -70,10 +70,16 @@ border-radius: 8px;
 background-color: #94a5cb;
 margin-bottom:7px;
 color: white;
+:hover{
+  cursor: pointer;
+}
 `
 export const SendToLogin=styled.h1`
 
 text-decoration: underline;
 color: #94a5cc;
 font-weight: bold;
+:hover{
+  cursor: pointer;
+}
 `

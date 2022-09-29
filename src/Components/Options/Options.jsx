@@ -19,9 +19,9 @@ import appContext from "../../Contexts/AppContext.js"
       setDesappear(false)
     }
     return(
-        <S.ContainerOption>
+        <S.ContainerOption  onClick={chooseOption}>
     
-        <S.OptionImage onClick={chooseOption} src={image} ></S.OptionImage>
+        <S.OptionImage src={image} ></S.OptionImage>
         
               <S.OptionText>{name}</S.OptionText>
      </S.ContainerOption>
