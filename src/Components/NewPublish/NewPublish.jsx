@@ -38,6 +38,7 @@ export default function NewPublish(){
         <S.InputComent rows="3" cols="30" wrap="hard" placeholder="Conte como foi sua experiencia"></S.InputComent>
         <S.InputImage placeholder="Compartilhe sua fotinha" ></S.InputImage>
         <S.InputLocal placeholder="Insira a localizacao" ></S.InputLocal>
+
         <S.Options/>
         <S.RateEmojis>
          <S.Rate>😞</S.Rate>
@@ -47,6 +48,6 @@ export default function NewPublish(){
         </S.RateEmojis>
       
     </S.ContainerPublish>
-    
+
     </>)
 }

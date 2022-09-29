@@ -6,9 +6,11 @@ import SignUpScreen from "./Pages/SignUp/SignUpScreen.jsx"
 import HomeScreen from "./Pages/Home/HomeScreen.jsx"
 import OptionScreen from "./Pages/Option/OptionScreen.jsx"
 import ProfileScreen from "./Pages/Profile/ProfileScreen.jsx"
+
 import AboutUsScreen from "./Pages/AboutUs/AboutUsScreen.jsx"
 import SettingsScreen from "./Pages/Settings/SettingsScreen.jsx"
 import HelpScreen from "./Pages/Help/HelpScreen.jsx"
+
 import PublishScreen from "./Pages/Publish/PublishScreen.jsx"
 
 export default function App(){
