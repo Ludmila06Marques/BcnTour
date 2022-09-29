@@ -49,6 +49,9 @@ border-bottom: 1px lightgrey solid ;
 a:link{
     text-decoration: none;
 }
+:hover{
+  cursor: pointer;
+}
 
 
 ion-icon{

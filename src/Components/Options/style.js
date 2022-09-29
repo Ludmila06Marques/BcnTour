@@ -8,6 +8,9 @@ align-items: center;
 width: 100%;
 height: 230px;
 background-size: 400px;
+:hover{
+  cursor: pointer;
+}
 
 `
 
@@ -16,6 +19,7 @@ position: relative;
  font-size: 40px;
     color: black;
     font-weight: bold;
+
 `
 export const OptionImage=styled.img`
 position: absolute;

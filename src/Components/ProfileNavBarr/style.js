@@ -12,6 +12,9 @@ ion-icon{
     font-size: 30px;
     color: white;
     margin-left:10px;
+    :hover{
+  cursor: pointer;
+}
 }
 
 
