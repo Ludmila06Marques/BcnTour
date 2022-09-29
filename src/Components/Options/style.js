@@ -32,6 +32,3 @@ padding: 3px;
 
 
 //display: ${props => props.view ? "flex": "none"};
-//@media (min-width: 500px) {
-  //width: 500px;
-//}

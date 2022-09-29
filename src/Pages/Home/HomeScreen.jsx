@@ -14,13 +14,11 @@ export default function HomeScreen(){
   
 
     return(<>
-    <S.Align>
     <S.ContainerHome>
     <NavBarr/>
     <SideBarr />
     <Options/>
    <More/>
     </S.ContainerHome>
-    </S.Align>
     </>)
 }
