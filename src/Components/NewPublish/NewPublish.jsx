@@ -50,3 +50,4 @@ export default function NewPublish(){
     
     </>)
 }
+//Como trocar a cor da opcao quando clico sem trocar a cor de todas ?

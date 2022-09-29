@@ -26,7 +26,7 @@ import appContext from "../../Contexts/AppContext.js"
 
 }
 
-export default function Options(){
+export default function OptionsProfile(){
    
 
 
@@ -64,5 +64,3 @@ export default function Options(){
     </>)
 
 }
-
-//COmo trocar a cor da opcao sem trocar a cor das outras ?
