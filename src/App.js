@@ -12,6 +12,7 @@ import SettingsScreen from "./Pages/Settings/SettingsScreen.jsx"
 import HelpScreen from "./Pages/Help/HelpScreen.jsx"
 
 import PublishScreen from "./Pages/Publish/PublishScreen.jsx"
+import VisitsScreen from "./Pages/Visits/VisitsScreen.jsx"
 
 export default function App(){
     
@@ -37,12 +38,12 @@ export default function App(){
         <Route  path="/" element={<LoginScreen/>}></Route> 
         <Route  path="/sign-up" element={<SignUpScreen/>}></Route> 
         <Route  path="/home" element={<HomeScreen/>}></Route> 
-        <Route  path="/home/:idDaOption" element={<OptionScreen/>}></Route> 
-        <Route  path="/profile" element={<ProfileScreen/>}></Route> 
+        <Route  path="/profile/:id" element={<ProfileScreen/>}></Route> 
         <Route  path="/settings" element={<SettingsScreen/>}></Route> 
         <Route  path="/aboutUs" element={<AboutUsScreen/>}></Route> 
         <Route  path="/help" element={<HelpScreen/>}></Route> 
         <Route  path="/publish" element={<PublishScreen/>}></Route> 
+        <Route  path="/visits" element={<VisitsScreen/>}></Route> 
         
 
     </Routes>    
@@ -51,3 +52,4 @@ export default function App(){
     
     </>)
 }
+//  <Route  path="/home/:idDaOption" element={<OptionScreen/>}></Route> 

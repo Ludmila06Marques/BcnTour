@@ -5,7 +5,7 @@ position: relative;
 display: flex;
 justify-content: center;
 align-items: center;
-margin: 5px;
+margin: 2px;
 
 :hover{
   cursor: pointer;
@@ -37,11 +37,10 @@ align-items: center;
 margin-right: 2px;
 margin-top: 2px;
 border-radius: 8px;
-width: 95px;
-height: 50px;
+font-size: 16px;
+width: 65px;
+height: 45px;
 color: #94a5cb;
 font-weight: bold;
 border: solid 1px #94a5cb;
 `
-
-//display: ${props => props.view ? "flex": "none"};

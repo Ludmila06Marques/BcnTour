@@ -1,8 +1,10 @@
 import Emoji from "../Emojis/Emojis.jsx"
 import * as S from "./style.js"
+import { useNavigate } from "react-router-dom"
 
 
 export default function Publish(){
+    const navigate=useNavigate()
     function goToLocal(){
         console.log("indo pra loc")
     }
@@ -12,6 +14,9 @@ export default function Publish(){
     function deleting(){
        console.log("deletando")
     }
+    function goToProfile(){
+ navigate('/profile/:id')
+    }
     return(<>
     <S.ContainerPublish>
         <S.UserInfo>
@@ -20,7 +25,7 @@ export default function Publish(){
             <S.UserImage></S.UserImage>
 
             <S.PublishInfo>
-            <S.UserName>Ludzinha</S.UserName>
+            <S.UserName onClick={goToProfile} >Ludzinha</S.UserName>
             <S.Localization onClick={goToLocal} >
                 <S.LocalIcon><ion-icon name="location-outline"></ion-icon></S.LocalIcon>
                 <S.LocalName>Sagrada familia</S.LocalName>

@@ -18,10 +18,13 @@ export default function SideBarr(){
         <S.Image></S.Image>
         <S.Name>Ludzinha</S.Name>
     </S.Perfil>
-    <Link to='/profile' >
+    <Link to='/profile/:id' >
     <S.Box><ion-icon name="person-outline"></ion-icon><S.Text>Meu perfil</S.Text></S.Box>
     </Link>
-
+    <Link to='/visits' >
+    <S.Box><ion-icon name="flag-outline"></ion-icon><S.Text>Minhas visitas</S.Text></S.Box>
+    </Link>
+   
     <Link to='/settings' >  <S.Box><ion-icon name="settings-outline"></ion-icon><S.Text>Configuracoes</S.Text></S.Box>
     </Link>
   
