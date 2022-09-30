@@ -1,3 +1,4 @@
+import axios from "axios"
 import Logo from "../../Components/Logo/Logo.jsx"
 import * as S from "./style"
 import { Link } from "react-router-dom"
