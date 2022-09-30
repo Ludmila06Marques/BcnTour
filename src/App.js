@@ -16,14 +16,17 @@ import VisitsScreen from "./Pages/Visits/VisitsScreen.jsx"
 
 export default function App(){
     
-    const [email, setEmail]=useState("")
+   const [email, setEmail]=useState("")
    const [password, setPassword]=useState("")
    const [name , setName]=useState("")
+   const [city , setCity]=useState("")
+   const [country , setCountry]=useState("")
+   const [urlImage , setUrlImage]=useState("")
+
     const [token , setToken]=useState()
     //const [login , setLogin]=useState()
     const [view , setView]=useState(false)
     const[viewNavBarr , setViewNavBarr]=useState("list-outline")
-    //const [home  , setHome]=useState("")
     const [appear , setAppear]=useState(false)
     const [desappear , setDesappear]=useState(true)
 
@@ -31,7 +34,7 @@ export default function App(){
 
     return(<>
     
-    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken  }} >
+    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken , name , setName , city  , setCity , country , setCountry , urlImage , setUrlImage  }} >
     <BrowserRouter>
     <Routes>
         
