@@ -26,8 +26,7 @@ align-items: center;
 
 
 `
-export const Image=styled.div`
-background-color: white;
+export const Image=styled.img`
 width: 50px;
 height: 50px;
 border-radius: 100px;`

@@ -5,9 +5,10 @@ import { useContext } from "react"
 import appContext from "../../Contexts/AppContext.js"
 
 
-export default function ProfileNavBarr(){
+export default function ProfileNavBarr({login}){
     const navigate =useNavigate()
-    const {setView , view , viewNavBarr , setViewNavBarr , setAppear , appear , setDesappear , desappear }= useContext(appContext)
+    const {setView , setViewNavBarr , setAppear , setDesappear , 
+ }= useContext(appContext)
     function goHome(){
         setAppear(false)
         setDesappear(true)
@@ -18,7 +19,7 @@ export default function ProfileNavBarr(){
 
     return (<>
   <S.ContainerNavBarr>
-<S.UserName>Ludzinha</S.UserName>
+<S.UserName>{login.name}</S.UserName>
 
 <ion-icon onClick={goHome} name="chevron-back-outline"></ion-icon>
 

@@ -1,3 +1,4 @@
+import axios from "axios"
 import * as S from "./style.js"
 import lazer from "../../img/lazer.png"
 import sagrada from "../../img/sagradafamilia.jpg"
@@ -8,6 +9,7 @@ import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import appContext from "../../Contexts/AppContext.js"
+import { useEffect } from "react"
 
  function OneOption({id , image , name}){
     const {setView , view , viewNavBarr , setViewNavBarr , setAppear , appear , setDesappear , desappear }= useContext(appContext)
@@ -28,37 +30,27 @@ import appContext from "../../Contexts/AppContext.js"
 
 export default function OptionsProfile(){
    
+    const {setView , view , viewNavBarr , setViewNavBarr , setAppear , appear , setDesappear , desappear , setOptions, options }= useContext(appContext)
 
-
-    const optionsArray=[
-        {id:1,
-            name:"Lazer",
-        image:lazer
-        },
-        {id:2,
-            name:"Cultura",
-        image:sagrada
-        },
-        {id:3,
-            name:"Comida",
-        image:paella
-        },  
-         {id:4,
-            name:"Compras",
-        image:plaza
-        },
-        {id:5,
-            name:"Eventos",
-        image:font
-        },
-
-    ]
+    useEffect(async ()=>{
+          
+        try  {
+           const promise=await axios.get('http://localhost:5000/option')  
+         
+         
+           setOptions([...promise.data])
+           
+           
+       } catch (error) {
+           console.log(error)
+       }
+   },[options])
 
   
 
     return(<>
        <S.Container>
-    {optionsArray.map( (item , index) =>  
+    {options.map( (item , index) =>  
        <OneOption id={item.id} name={item.name} image={item.image} key={index}/> )}
        </S.Container>
     </>)
