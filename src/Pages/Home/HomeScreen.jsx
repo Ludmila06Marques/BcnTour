@@ -27,7 +27,7 @@ function Publish({coment , urlImage ,rateNote , localization ,user}){
        console.log("deletando")
     }
     function goToProfile(){
- navigate('/profile/:id')
+ navigate(`/profile/${user.id}`)
     }
     
 

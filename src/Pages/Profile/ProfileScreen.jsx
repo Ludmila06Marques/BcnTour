@@ -1,7 +1,7 @@
 import * as S from "./style.js"
 import axios from "axios"
 import { useContext , useEffect } from "react"
-import { useNavigate} from "react-router-dom"
+import { useNavigate, useParams} from "react-router-dom"
 import ProfileInfo from "../../Components/ProfileInfo/ProfileInfo"
 import ProfileNavBarr from "../../Components/ProfileNavBarr/ProfileNavBarr"
 import OptionsProfile from "../../Components/OptionsProfile/OptionsProfile"
@@ -23,7 +23,7 @@ function Publish({coment , urlImage ,rateNote , localization , user}){
        console.log("deletando")
     }
     function goToProfile(){
- navigate('/profile/:id')
+ navigate(`/profile/${user.id}`)
     }
 
     return(<>
@@ -67,14 +67,14 @@ function Publish({coment , urlImage ,rateNote , localization , user}){
 export default function ProfileScreen(){
 
 
-   
+   const {id}=useParams()
  
     const {setUserPublishes, userPublishes, login}=useContext(appContext)
 
     useEffect(async()=>{
         try {
             
-            const promise= await axios.get(`http://localhost:5000/publishUser/${login.id}` )  
+            const promise= await axios.get(`http://localhost:5000/publishUser/${id}` )  
        
             setUserPublishes(promise.data)
          
@@ -86,8 +86,8 @@ export default function ProfileScreen(){
   
    
     return(<>
-     <ProfileNavBarr login={login} />
-     <ProfileInfo login={login} />
+     <ProfileNavBarr id={id} />
+     <ProfileInfo id={id} login={login} />
      <OptionsProfile  />
    {userPublishes.map((item , index)=> <Publish key={index} coment={item.coment} urlImage={item.urlImage} localization={item.localization} rateNote={item.rateNote} user={item.user}/>)}
   
