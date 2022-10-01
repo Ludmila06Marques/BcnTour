@@ -1,13 +1,31 @@
-
+import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import * as S from "./style.js"
 import { useContext } from "react"
 import appContext from "../../Contexts/AppContext.js"
+import { useEffect,useState } from "react"
 
 
-export default function ProfileNavBarr(){
+
+export default function ProfileNavBarr({id}){
+  console.log(id)
+  const [info ,setInfo]=useState([])
+
+  useEffect(async ()=>{
+    try {
+            
+      const promise= await axios.get(`http://localhost:5000/user/${id}` )  
+ 
+     setInfo(promise.data)
+   
+  
+  } catch (error) {
+      console.log(error)
+  }
+  },[])
+
     const navigate =useNavigate()
-    const {setView , view , viewNavBarr , setViewNavBarr , setAppear , appear , setDesappear , desappear }= useContext(appContext)
+    const {setView , setViewNavBarr , setAppear , setDesappear }= useContext(appContext)
     function goHome(){
         setAppear(false)
         setDesappear(true)
@@ -18,7 +36,7 @@ export default function ProfileNavBarr(){
 
     return (<>
   <S.ContainerNavBarr>
-<S.UserName>Ludzinha</S.UserName>
+<S.UserName>{info.name}</S.UserName>
 
 <ion-icon onClick={goHome} name="chevron-back-outline"></ion-icon>
 

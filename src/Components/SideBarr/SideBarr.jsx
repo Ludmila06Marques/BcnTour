@@ -4,7 +4,7 @@ import { useContext } from "react"
 import { Link } from "react-router-dom"
 
 
-export default function SideBarr(){
+export default function SideBarr({login}){
       
     const { view  }= useContext(appContext)
  
@@ -15,10 +15,10 @@ export default function SideBarr(){
     <S.ContainerSideBarr view={view} >
 
     <S.Perfil>
-        <S.Image></S.Image>
-        <S.Name>Ludzinha</S.Name>
+        <S.Image src={login.urlImage} />
+        <S.Name>{login.name}</S.Name>
     </S.Perfil>
-    <Link to='/profile/:id' >
+    <Link to={`/profile/${login.id}`} >
     <S.Box><ion-icon name="person-outline"></ion-icon><S.Text>Meu perfil</S.Text></S.Box>
     </Link>
     <Link to='/visits' >

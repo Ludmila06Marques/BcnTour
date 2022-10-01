@@ -10,27 +10,30 @@ import { useNavigate } from "react-router-dom"
 
 export default function LoginScreen(){
        const navigate= useNavigate()
-        const {setEmail , email , setPassword , password , setName , name , setCity , city , setCountry , country , setUrlImage , urlImage}= useContext(appContext)
+        const {setEmail , email , setPassword , password , setName , name , setCity , city , setCountry , country , setUrlImage , urlImage, setLogin , login }= useContext(appContext)
 
-    async function login(){
-        const body={email ,password }       
-        console.log(body)
+    async function toLogin(){
+        const body={email ,password }   
+      
+       
         try {
+            
             const promise= await axios.post('http://localhost:5000/login' , body)  
-            console.log(promise.data)  
+           
+            setLogin(promise.data.user)
             navigate("/home")
         } catch (error) {
-            console.log(error.response.data)
+            console.log(error)
         }
     }
-
+    console.log(login)
     return(<>
   
     <Logo/>
     <S.ContainerInputs>
         <S.InputEmail type="text" placeholder="Email" onChange={(e)=> setEmail(e.target.value)} value={email} ></S.InputEmail>
         <S.InputPassword type="password" placeholder="Password" onChange={(e)=> setPassword(e.target.value)} value={password}></S.InputPassword>
-        <S.LoginButton>Entrar</S.LoginButton>
+        <S.LoginButton onClick={toLogin}>Entrar</S.LoginButton>
         <Link to="/sign-up" >
         <S.SendToSignUp>Nao tem conta?Cadastre-se</S.SendToSignUp>
         </Link>

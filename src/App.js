@@ -24,17 +24,21 @@ export default function App(){
    const [urlImage , setUrlImage]=useState("")
 
     const [token , setToken]=useState()
-    //const [login , setLogin]=useState()
+    const [login , setLogin]=useState()
     const [view , setView]=useState(false)
     const[viewNavBarr , setViewNavBarr]=useState("list-outline")
     const [appear , setAppear]=useState(false)
     const [desappear , setDesappear]=useState(true)
+    const  [options , setOptions]=useState([])
+    const [userPublishes , setUserPublishes ]=useState([])
+    const [publishes , setPublishes ]=useState([])
+    const [user , setUser]=useState([])
 
 
 
     return(<>
     
-    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken , name , setName , city  , setCity , country , setCountry , urlImage , setUrlImage  }} >
+    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken , name , setName , city  , setCity , country , setCountry , urlImage , setUrlImage , options , setOptions , login , setLogin , publishes , setPublishes , user , setUser , userPublishes , setUserPublishes}} >
     <BrowserRouter>
     <Routes>
         

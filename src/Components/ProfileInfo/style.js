@@ -9,10 +9,9 @@ width: 100%;
 height: 150px;
 background-color: blue;
 `
-export const UserImage=styled.div`
+export const UserImage=styled.img`
 width: 80px;
 height: 80px;
-background-color: white;
 border-radius:50px;
 `
 export const Info=styled.div`
@@ -21,7 +20,7 @@ height: 80px;
 background-color: green;
 `
 export const InfoCity=styled.h1`
-background-color: green;
+
 `
 export const GroupInfo=styled.div`
 display: flex;
