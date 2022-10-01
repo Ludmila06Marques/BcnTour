@@ -24,6 +24,9 @@ export default function SideBarr({login}){
     <Link to='/visits' >
     <S.Box><ion-icon name="flag-outline"></ion-icon><S.Text>Minhas visitas</S.Text></S.Box>
     </Link>
+    <Link to='/places' >
+    <S.Box><ion-icon name="map-outline"></ion-icon><S.Text>Pontos turisticos</S.Text></S.Box>
+    </Link>
    
     <Link to='/settings' >  <S.Box><ion-icon name="settings-outline"></ion-icon><S.Text>Configuracoes</S.Text></S.Box>
     </Link>

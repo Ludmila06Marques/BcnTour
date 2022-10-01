@@ -13,32 +13,36 @@ import HelpScreen from "./Pages/Help/HelpScreen.jsx"
 
 import PublishScreen from "./Pages/Publish/PublishScreen.jsx"
 import VisitsScreen from "./Pages/Visits/VisitsScreen.jsx"
+import PlacesScreen from "./Pages/Places/PlacesScreen.jsx"
 
 export default function App(){
-    
+    //login
    const [email, setEmail]=useState("")
    const [password, setPassword]=useState("")
    const [name , setName]=useState("")
-   const [city , setCity]=useState("")
+   const [countries , setCountries]=useState([])
    const [country , setCountry]=useState("")
    const [urlImage , setUrlImage]=useState("")
-
     const [token , setToken]=useState()
     const [login , setLogin]=useState()
+
+    //layout
     const [view , setView]=useState(false)
     const[viewNavBarr , setViewNavBarr]=useState("list-outline")
     const [appear , setAppear]=useState(false)
     const [desappear , setDesappear]=useState(true)
+
+    //Publishes
+  
     const  [options , setOptions]=useState([])
     const [userPublishes , setUserPublishes ]=useState([])
     const [publishes , setPublishes ]=useState([])
     const [user , setUser]=useState([])
-
-
+    const [choose , setChoose]=useState("")
 
     return(<>
     
-    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken , name , setName , city  , setCity , country , setCountry , urlImage , setUrlImage , options , setOptions , login , setLogin , publishes , setPublishes , user , setUser , userPublishes , setUserPublishes}} >
+    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken , name , setName    , country , setCountry , urlImage , setUrlImage , options , setOptions , login , setLogin , publishes , setPublishes , user , setUser , userPublishes , setUserPublishes ,choose , setChoose , setCountries , countries  }} >
     <BrowserRouter>
     <Routes>
         
@@ -51,7 +55,7 @@ export default function App(){
         <Route  path="/help" element={<HelpScreen/>}></Route> 
         <Route  path="/publish" element={<PublishScreen/>}></Route> 
         <Route  path="/visits" element={<VisitsScreen/>}></Route> 
-        
+        <Route  path="/places" element={<PlacesScreen/>}></Route> 
 
     </Routes>    
     </BrowserRouter>

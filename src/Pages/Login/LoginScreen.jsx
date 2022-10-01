@@ -26,7 +26,7 @@ export default function LoginScreen(){
             console.log(error)
         }
     }
-    console.log(login)
+  
     return(<>
   
     <Logo/>

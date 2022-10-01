@@ -70,3 +70,16 @@ margin-bottom: 5px;
 width: 100%;
 
 `
+
+export const Container=styled.button`
+display: flex;
+justify-content: center;
+align-items: center;
+position: fixed;
+bottom: 10px;
+background-color: blue;
+width: 300px;
+height: 42px;
+border: 1 px solid blue;
+border-radius: 8px;
+`

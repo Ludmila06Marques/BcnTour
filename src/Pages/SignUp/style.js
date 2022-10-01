@@ -1,8 +1,17 @@
 import styled from "styled-components";
 
+
+export const ContainerSelect=styled.div`
+width: 256px;
+
+margin-bottom:10px;
+border-radius: 8px;
+border: solid 1px #94a5cb;
+`
+
 export const InputCity=styled.input`
+
 width:123px;
-height: 45px;
 border-radius: 8px;
 border: solid 1px #94a5cb;
 padding: 10px;
@@ -19,6 +28,7 @@ padding: 10px;
 margin-bottom: 10px;
 `
 export const ContainerInputsCity=styled.div`
+
 `
 
 export const InputName=styled.input`
@@ -60,6 +70,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+
 `
 
 export const SignUpButton = styled.button`
@@ -75,7 +86,7 @@ color: white;
 }
 `
 export const SendToLogin=styled.h1`
-
+margin-bottom: 20px;
 text-decoration: underline;
 color: #94a5cc;
 font-weight: bold;
