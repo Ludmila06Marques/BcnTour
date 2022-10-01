@@ -4,14 +4,34 @@ import * as S from "./style.js"
 import { useContext, useEffect, useState } from "react"
 import appContext from "../../Contexts/AppContext.js"
 
- function OneOption({id  , name}){
-    const { setAppear  , setDesappear  }= useContext(appContext)
+function OneOption({id  , name , setPublishes , publishes}){
+    const { setAppear  , setDesappear   }= useContext(appContext)
+    
+  
    
-    function chooseOption(){
-        console.log(`To filtrando pelo ${id}`)
+
+    async function chooseOption(){
+        setPublishes([])
+   
+          
+        try  {
+            const promise=await axios.get(`http://localhost:5000/publishOption/${id}`)  
+          
+          console.log(promise.data)
+            setPublishes(promise.data)
+          
+            
+        } catch (error) {
+            console.log(error)
+        }
+
       setAppear(true)
       setDesappear(false)
     }
+
+  
+
+   
     return(
         
         <S.ContainerOption  onClick={chooseOption}>
@@ -21,7 +41,8 @@ import appContext from "../../Contexts/AppContext.js"
 
 }
 
-export default function Options(){
+
+  export default function Options({setPublishes , publishes}){
     const { setOptions, options }= useContext(appContext)
   
     useEffect(async ()=>{
@@ -36,14 +57,14 @@ export default function Options(){
         } catch (error) {
             console.log(error)
         }
-    },[options])
+    },[])
 
 
 
     return(<>
        <S.Container>
     {options.map( (item , index) =>  
-       <OneOption id={item.id} name={item.name} image={item.image} key={index}/> )}
+       <OneOption id={item.id} name={item.name} image={item.image} key={index} setPublishes={setPublishes} publishes={publishes} /> )}
        </S.Container>
     </>)
 

@@ -1,17 +1,15 @@
+import * as S from "./style.js"
 import axios from "axios"
+import { useContext , useEffect } from "react"
+import { useNavigate} from "react-router-dom"
 import ProfileInfo from "../../Components/ProfileInfo/ProfileInfo"
 import ProfileNavBarr from "../../Components/ProfileNavBarr/ProfileNavBarr"
-import * as S from "./style.js"
-import Options from "../../Components/Options/Options"
 import OptionsProfile from "../../Components/OptionsProfile/OptionsProfile"
-import { useEffect } from "react"
 import appContext from "../../Contexts/AppContext.js"
-import { useContext } from "react"
-import { useParams } from "react-router-dom"
 import Emoji from "../../Components/Emojis/Emojis"
-import { useNavigate } from "react-router-dom"
 
-function Publish({coment , urlImage ,rateNote , localization , login}){
+
+function Publish({coment , urlImage ,rateNote , localization , user}){
 
    
     const navigate=useNavigate()
@@ -33,10 +31,10 @@ function Publish({coment , urlImage ,rateNote , localization , login}){
         <S.UserInfo>
             <S.User>
           
-            <S.UserImage src={login.urlImage}/>
+            <S.UserImage src={user.urlImage}/>
 
             <S.PublishInfo>
-            <S.UserName onClick={goToProfile} >{login.name}</S.UserName>
+            <S.UserName onClick={goToProfile} >{user.name}</S.UserName>
             <S.Localization onClick={goToLocal} >
                 <S.LocalIcon><ion-icon name="location-outline"></ion-icon></S.LocalIcon>
                 <S.LocalName>{localization}</S.LocalName>
@@ -69,14 +67,14 @@ function Publish({coment , urlImage ,rateNote , localization , login}){
 export default function ProfileScreen(){
 
 
-    const{id}=useParams()
+   
  
     const {setUserPublishes, userPublishes, login}=useContext(appContext)
 
     useEffect(async()=>{
         try {
             
-            const promise= await axios.get(`http://localhost:5000/publishUser/${id}` )  
+            const promise= await axios.get(`http://localhost:5000/publishUser/${login.id}` )  
        
             setUserPublishes(promise.data)
          
@@ -84,14 +82,14 @@ export default function ProfileScreen(){
         } catch (error) {
             console.log(error)
         }
-    },[userPublishes])
+    },[])
   
    
     return(<>
      <ProfileNavBarr login={login} />
      <ProfileInfo login={login} />
-     <OptionsProfile/>
-   {userPublishes.map((item , intes)=> <Publish coment={item.coment} urlImage={item.urlImage} localization={item.localization} rateNote={item.rateNote} login={login}/>)}
+     <OptionsProfile  />
+   {userPublishes.map((item , index)=> <Publish key={index} coment={item.coment} urlImage={item.urlImage} localization={item.localization} rateNote={item.rateNote} user={item.user}/>)}
   
     </>)
 }
