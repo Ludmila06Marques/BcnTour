@@ -1,12 +1,16 @@
 import ProfileNavBarr from "../../Components/ProfileNavBarr/ProfileNavBarr.jsx"
 
 import OptionsToSetting from "../../Components/OptionsToSetting/OptionsToSetting"
-import SideBarr from "../../Components/SideBarr/SideBarr.jsx"
+import appContext from "../../Contexts/AppContext.js"
+import { useContext } from "react"
+
+
 export default function SettingsScreen(){
+    const {login}=useContext(appContext)
 
     return(<>
-    <ProfileNavBarr/>
+    <ProfileNavBarr id={login.id} />
 
-<OptionsToSetting/>
+<OptionsToSetting login={login}/>
     </>)
 }
