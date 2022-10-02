@@ -1,10 +1,11 @@
+import Maps from "../Maps/Maps.tsx"
 import * as S from "./style.js"
 
 
 export default function Localization(){
     return(<>
     <S.ContainerMap>
-        <S.Content>MAPA</S.Content>
+      <Maps/>
     </S.ContainerMap>
     </>)
 }

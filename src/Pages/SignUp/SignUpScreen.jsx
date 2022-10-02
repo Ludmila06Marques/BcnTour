@@ -42,21 +42,7 @@ export default function SignUpScreen(){
         setCountry(country)
     }
     
-    const customStyles = {
-        option: (provided, state) => ({
-          ...provided,
-          borderBottom: '1px dotted pink',
-          color:'blue',
-          padding: 20,
-        }),
-        singleValue: (provided, state) => {
-            const opacity = state.isDisabled ? 0.5 : 1;
-            const transition = 'opacity 300ms';
-        
-            return { ...provided, opacity, transition };
-          }
-       
-      }
+ 
     return(<>
   
     <Logo  />
@@ -71,7 +57,7 @@ export default function SignUpScreen(){
             defaultValue={{ label:"De onde voce é?" , value:"empty"}}
             options= {countries === undefined ? "" : countries.map(e=>({label:e.nome, value:e.value}))}
             onChange={selectCountry}
-          styles={customStyles}
+         
         
             />
             </S.ContainerSelect>

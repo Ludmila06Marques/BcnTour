@@ -14,8 +14,7 @@ import charge from "../../img/charge.png"
 
 
 function Publish({coment , urlImage ,rateNote , localization ,user}){
- 
-   console.log(user)
+
     const navigate=useNavigate()
     function goToLocal(){
         console.log("indo pra loc")

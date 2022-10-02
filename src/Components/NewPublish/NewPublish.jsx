@@ -1,4 +1,4 @@
-import Localization from "../Localization/Localization.jsx"
+import {Autocomplete } from '@react-google-maps/api';
 import * as S from "./style.js"
 import OptionsChoose from "../../Components/OptionsChoose/OptionsChoose.jsx"
 import appContext from "../../Contexts/AppContext.js"
@@ -6,6 +6,10 @@ import { useContext, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
  
+
+
+
+
 
 function InsertButton({coment , urlImage , rateNote , localization}){
  const    navigate=useNavigate()
@@ -60,8 +64,10 @@ export default function NewPublish(){
 
         <S.InputComent rows="3" cols="30" wrap="hard" placeholder="Conte como foi sua experiencia"  onChange={(e)=> setComent(e.target.value)} value={coment} ></S.InputComent>
         <S.InputImage placeholder="Compartilhe sua fotinha"  onChange={(e)=> setUrlImage(e.target.value)} value={urlImage}  ></S.InputImage>
-        <S.InputLocal placeholder="Insira a localizacao"  onChange={(e)=> seLlocalization(e.target.value)} value={localization} ></S.InputLocal>
+     
 
+
+     
         <S.Options/>
         <S.RateEmojis>
          <S.Rate onClick={()=> setRateNote("1")} value={rateNote} >😞</S.Rate>
