@@ -26,7 +26,7 @@ export default function HomeScreen(){
 
             const promise= await axios.get(`http://localhost:5000/publish` )  
        
-          setPublishes(promise.data)
+          setPublishes([...promise.data])
          
         
         } catch (error) {
@@ -42,7 +42,7 @@ console.log(publishes)
     <Options publishes={publishes} setPublishes={setPublishes} />
   
     {publishes.map((item , index)=>  
-    <Publish key={index} id={item.id} setPublishes={setPublishes} login={login} coment={item.coment} urlImage={item.urlImage} localization={item.localization} rateNote={item.rateNote} user={item.user} />)}
+    <Publish key={index} id={item.id} setPublishes={setPublishes} login={login} coment={item.coment} urlImage={item.urlImage} localization={item.localization.name} rateNote={item.rateNote} user={item.user} />)}
 
    <More/>
     </S.ContainerHome>

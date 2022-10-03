@@ -39,10 +39,13 @@ export default function App(){
     const [publishes , setPublishes ]=useState([])
     const [user , setUser]=useState([])
     const [choose , setChoose]=useState("")
+    const [localizationName , setLocalizationName]=useState("")
+    const [latitude , setLatitude ]=useState(0)
+    const [longitude , setLongitude ]=useState(0)
 
     return(<>
     
-    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken , name , setName    , country , setCountry , urlImage , setUrlImage , options , setOptions , login , setLogin , publishes , setPublishes , user , setUser , userPublishes , setUserPublishes ,choose , setChoose , setCountries , countries  }} >
+    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken , name , setName    , country , setCountry , urlImage , setUrlImage , options , setOptions , login , setLogin , publishes , setPublishes , user , setUser , userPublishes , setUserPublishes ,choose , setChoose , setCountries , countries , latitude , setLatitude , longitude , setLongitude  , setLocalizationName , localizationName}} >
     <BrowserRouter>
     <Routes>
         

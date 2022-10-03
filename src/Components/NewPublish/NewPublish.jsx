@@ -11,16 +11,20 @@ import { useNavigate } from "react-router-dom"
 
 
 
-function InsertButton({coment , urlImage , rateNote , localization}){
+function InsertButton({coment , urlImage , rateNote , localizationName , latitude , longitude }){
  const    navigate=useNavigate()
     const {choose , login}=useContext(appContext)
  async  function publicar(){
+
+
         const body={
-          coment,
-          urlImage,
-          rateNote,
-          localization,
-          optionId:choose,
+    coment,
+    urlImage,
+    rateNote,
+    localizationName,
+    localizationLat:latitude+"",
+    localizationLong:longitude+"",
+    optionId:Number(choose),
           userId:login.id
         }
        // const headers={
@@ -30,7 +34,7 @@ function InsertButton({coment , urlImage , rateNote , localization}){
         //}
      console.log(body)
         try {
-             await axios.post('https://localhost:5000/publish' , body )
+             await axios.post('http://localhost:5000/publish' , body )
           
              navigate('/home')
         } catch (error) {
@@ -56,7 +60,7 @@ export default function NewPublish(){
      const [localization , seLlocalization]=useState("")
     
 
-    const {publishes , setPublishes  }=useContext(appContext)
+    const {publishes , setPublishes , localizationName , latitude , longitude  }=useContext(appContext)
 
     return(<> 
     <S.ContainerPublish>
@@ -76,7 +80,7 @@ export default function NewPublish(){
         <S.Rate  onClick={()=> setRateNote("4")} value={rateNote}  >😀</S.Rate>
         </S.RateEmojis>
       
-      <InsertButton coment={coment} urlImage={urlImage} localization={localization}  rateNote={rateNote} />
+      <InsertButton coment={coment} urlImage={urlImage} localization={localization}  rateNote={rateNote} latitude={latitude} longitude={longitude} localizationName={localizationName} />
     </S.ContainerPublish>
 
     </>)

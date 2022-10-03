@@ -39,7 +39,8 @@ export default function SignUpScreen(){
    },[countries])
 
     const selectCountry=(country)=>{
-        setCountry(country)
+   
+       setCountry(country.label)
     }
     
  

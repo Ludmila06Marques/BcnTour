@@ -1,15 +1,17 @@
 import { GoogleMap , LoadScript, Marker , Autocomplete  , StandaloneSearchBox} from '@react-google-maps/api';
 import * as S from "./style.js"
 import { useState } from 'react';
+import appContext from '../../Contexts/AppContext.js';
+import { useContext } from 'react';
 import React from 'react';
 export default function Maps(){
  
+  const{latitude , setLatitude , longitude , setLongitude , setLocalizationName , localizationName}=useContext(appContext)
 
 
       const [map , setMap]=useState<google.maps.Map>()
     const [searchBox , setSearchBox]=useState<google.maps.places.SearchBox>()
-    const [latitude , setLatitude ]=useState(0)
-    const [longitude , setLongitude ]=useState(0)
+   
 
     const onPlacesChanged=()=>{
       const places= searchBox!.getPlaces()
@@ -20,18 +22,19 @@ export default function Maps(){
         lat: place?.geometry?.location?.lat() || 0,
         lng: place?.geometry?.location?.lng() || 0
       }
-
+    
      setLatitude(location.lat)
      setLongitude(location.lng)
    
-
+   
       map?.panTo(location)
     }
 
     const onMapLoad=(map:google.maps.Map)=>{
+    
       setMap(map)
     }
-
+   
       const onLoad= (ref:google.maps.places.SearchBox) => {
      setSearchBox(ref)
       }
@@ -47,7 +50,7 @@ export default function Maps(){
  
       >
         <StandaloneSearchBox onLoad={onLoad} onPlacesChanged={onPlacesChanged} >
-        <S.InputLocal placeholder="Insira a localizacao" ></S.InputLocal>
+        <S.InputLocal placeholder="Insira a localizacao"onChange={(e : any)=> setLocalizationName(e.target.value)} value={localizationName} ></S.InputLocal>
         </StandaloneSearchBox>
   
          <Marker  position={{lat:latitude , lng:longitude}}/>
