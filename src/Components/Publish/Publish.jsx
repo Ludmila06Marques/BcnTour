@@ -3,7 +3,7 @@ import axios from "axios"
 import Emoji from "../Emojis/Emojis.jsx"
 import { useNavigate } from "react-router-dom"
 
-export default function Publish({coment , urlImage ,rateNote , localization , user  , login ,id }){
+export default function Publish({coment , urlImage ,rateNote , localizationName , user  , login ,id }){
 
    
     const navigate=useNavigate()
@@ -42,7 +42,7 @@ export default function Publish({coment , urlImage ,rateNote , localization , us
             <S.UserName onClick={goToProfile} >{user.name}</S.UserName>
             <S.Localization onClick={goToLocal} >
                 <S.LocalIcon><ion-icon name="location-outline"></ion-icon></S.LocalIcon>
-                <S.LocalName>{localization}</S.LocalName>
+                <S.LocalName>{localizationName}</S.LocalName>
             </S.Localization>
             </S.PublishInfo>
 
@@ -64,7 +64,7 @@ export default function Publish({coment , urlImage ,rateNote , localization , us
         </S.Coment>
         <S.Rate> <S.Emoji >{rateNote}</S.Emoji></S.Rate>
         </S.UnderInfo>
-       <Emoji/>
+    
     </S.ContainerPublish>
     </>)
 }

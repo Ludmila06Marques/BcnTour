@@ -30,9 +30,13 @@ flex-direction: column;
 
 align-items: center;
 margin-top: 10px;
+margin-bottom: 30px;
 width: 100%;
 height: 500px;
-background-color: blue;
+background-color:white;
+box-shadow: 0 0 1em black;
+
+
 `
 export const UserInfo=styled.div`
 display: flex;
@@ -41,7 +45,7 @@ justify-content: space-between;
 align-items: center;
 width: 100%;
 height: 55px;
-background-color: red;
+background-color: #94A5CB;
 
 `
 export const UserImage=styled.img`
@@ -79,12 +83,14 @@ ion-icon{
  width: 350px;
 height: 350px;
 padding: 10px;
-background-color: violet;
+background-color:#cdf4f4;
+
  `
  export const Coment=styled.div`
   width: 280px;
-  height: 80px;
-  background-color: white;
+  height:auto;
+  background-color:#cdf4f4;
+
  `
  export const UnderInfo=styled.div`
  display: flex;
@@ -95,7 +101,8 @@ background-color: violet;
  align-items: center;
   width: 70px;
   height: 80px;
-  background-color:red
+  background-color: #cdf4f4;
+
  `
  export const Emoji=styled.h1`
  font-size: 40px;

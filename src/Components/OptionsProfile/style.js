@@ -27,7 +27,7 @@ flex-wrap: wrap;
 justify-content: center;
 margin-top: 10px;
 align-items: center;
-width: 100%;
+overflow-x: scroll;
 
 `
 export const OptionName=styled.div`
@@ -38,7 +38,7 @@ margin-right: 2px;
 margin-top: 2px;
 border-radius: 8px;
 font-size: 16px;
-width: 65px;
+width: 100px;
 height: 45px;
 color: #94a5cb;
 font-weight: bold;

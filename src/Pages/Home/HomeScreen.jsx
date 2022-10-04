@@ -42,7 +42,7 @@ console.log(publishes)
     <Options publishes={publishes} setPublishes={setPublishes} />
   
     {publishes.map((item , index)=>  
-    <Publish key={index} id={item.id} setPublishes={setPublishes} login={login} coment={item.coment} urlImage={item.urlImage} localization={item.localization.name} rateNote={item.rateNote} user={item.user} />)}
+    <Publish key={index} id={item.id} setPublishes={setPublishes} login={login} coment={item.coment} urlImage={item.urlImage} localizationName={item.localization.name}  rateNote={item.rateNote} user={item.user} />)}
 
    <More/>
     </S.ContainerHome>

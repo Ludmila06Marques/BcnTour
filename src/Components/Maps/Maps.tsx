@@ -1,4 +1,4 @@
-import { GoogleMap , LoadScript, Marker , Autocomplete  , StandaloneSearchBox} from '@react-google-maps/api';
+import { GoogleMap , LoadScript, Marker   , StandaloneSearchBox} from '@react-google-maps/api';
 import * as S from "./style.js"
 import { useState } from 'react';
 import appContext from '../../Contexts/AppContext.js';
@@ -22,11 +22,8 @@ export default function Maps(){
         lat: place?.geometry?.location?.lat() || 0,
         lng: place?.geometry?.location?.lng() || 0
       }
-    
      setLatitude(location.lat)
      setLongitude(location.lng)
-   
-   
       map?.panTo(location)
     }
 

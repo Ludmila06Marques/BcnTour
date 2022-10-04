@@ -31,13 +31,13 @@ export default function ProfileScreen(){
             console.log(error)
         }
     },[setUserPublishes])
-  
+  console.log(userPublishes)
    
     return(<>
      <ProfileNavBarr id={id} />
      <ProfileInfo id={id} login={login} />
      <OptionsProfile  />
-   {userPublishes.map((item , index)=> <Publish setPublishes={setUserPublishes}  key={index}  id={item.id} login={login} coment={item.coment} urlImage={item.urlImage} localization={item.localization} rateNote={item.rateNote} user={item.user}/>)}
+   {userPublishes.map((item , index)=> <Publish setPublishes={setUserPublishes}  key={index}  id={item.id} login={login} coment={item.coment} urlImage={item.urlImage} localizationName={item.localization.name} rateNote={item.rateNote} user={item.user}/>)}
   
     </>)
 }
