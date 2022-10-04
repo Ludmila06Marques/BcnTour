@@ -8,7 +8,7 @@ import { useEffect,useState } from "react"
 
 
 export default function ProfileNavBarr({id}){
-  console.log(id)
+ 
   const [info ,setInfo]=useState([])
 
   useEffect(async ()=>{

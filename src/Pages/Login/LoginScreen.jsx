@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom"
 
 
 
+
 export default function LoginScreen(){
        const navigate= useNavigate()
         const {setEmail , email , setPassword , password , setName , name , setCity , city , setCountry , country , setUrlImage , urlImage, setLogin , login }= useContext(appContext)
@@ -26,9 +27,9 @@ export default function LoginScreen(){
             console.log(error)
         }
     }
-    console.log(login)
-    return(<>
   
+    return(<>
+
     <Logo/>
     <S.ContainerInputs>
         <S.InputEmail type="text" placeholder="Email" onChange={(e)=> setEmail(e.target.value)} value={email} ></S.InputEmail>

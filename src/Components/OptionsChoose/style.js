@@ -5,7 +5,7 @@ position: relative;
 display: flex;
 justify-content: center;
 align-items: center;
-margin: 2px;
+margin: 5px;
 
 :hover{
   cursor: pointer;
@@ -27,7 +27,7 @@ flex-wrap: wrap;
 justify-content: center;
 margin-top: 10px;
 align-items: center;
-overflow-x: scroll;
+width: 100%;
 
 `
 export const OptionName=styled.div`
@@ -37,10 +37,11 @@ align-items: center;
 margin-right: 2px;
 margin-top: 2px;
 border-radius: 8px;
-font-size: 16px;
-width: 100px;
-height: 45px;
+width: 95px;
+height: 50px;
 color: #94a5cb;
 font-weight: bold;
 border: solid 1px #94a5cb;
 `
+
+//display: ${props => props.view ? "flex": "none"};

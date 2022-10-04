@@ -1,52 +1,86 @@
-import Localization from "../Localization/Localization.jsx"
+import {Autocomplete } from '@react-google-maps/api';
 import * as S from "./style.js"
+import OptionsChoose from "../../Components/OptionsChoose/OptionsChoose.jsx"
+import appContext from "../../Contexts/AppContext.js"
+import { useContext, useState } from "react"
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
+ 
+
+
+
+
+
+function InsertButton({coment , urlImage , rateNote , localizationName , latitude , longitude }){
+ const    navigate=useNavigate()
+    const {choose , login}=useContext(appContext)
+ async  function publicar(){
+
+
+        const body={
+    coment,
+    urlImage,
+    rateNote,
+    localizationName,
+    localizationLat:latitude+"",
+    localizationLong:longitude+"",
+    optionId:Number(choose),
+          userId:login.id
+        }
+       // const headers={
+         //   headers:{
+           // Authorization:`Bearer ${token}`
+           // }
+        //}
+     console.log(body)
+        try {
+             await axios.post('http://localhost:5000/publish' , body )
+          
+             navigate('/home')
+        } catch (error) {
+            alert(error)
+        }
+    }
+   
+
+    return(<>
+    <S.Container onClick={publicar} >Publicar</S.Container>
+    </>)
+}
 
 
 
 export default function NewPublish(){
+    
+   
 
-    const optionsArray=[
-        {id:1,
-            name:"Lazer",
-        image:"lazer"
-        },
-        {id:2,
-            name:"Cultura",
-        image:"sagrada"
-        },
-        {id:3,
-            name:"Comida",
-        image:"paella"
-        },  
-         {id:4,
-            name:"Compras",
-        image:"plaza"
-        },
-        {id:5,
-            name:"Eventos",
-        image:"font"
-        },
+     const [coment , setComent]=useState("")
+     const [urlImage , setUrlImage]=useState("")
+     const [rateNote , setRateNote]=useState("")
+     const [localization , seLlocalization]=useState("")
+    
 
-    ]
- 
+    const {publishes , setPublishes , localizationName , latitude , longitude  }=useContext(appContext)
 
     return(<> 
     <S.ContainerPublish>
-    <S.Options>
-           {optionsArray.map((item,index)=>  <S.Option key={index}  >{item.name}</S.Option>)}
-        </S.Options>
-        <S.InputComent rows="3" cols="30" wrap="hard" placeholder="Conte como foi sua experiencia"></S.InputComent>
-        <S.InputImage placeholder="Compartilhe sua fotinha" ></S.InputImage>
-        <S.InputLocal placeholder="Insira a localizacao" ></S.InputLocal>
+    <OptionsChoose publishes={publishes} setPublishes={setPublishes} />
 
+        <S.InputComent rows="3" cols="30" wrap="hard" placeholder="Conte como foi sua experiencia"  onChange={(e)=> setComent(e.target.value)} value={coment} ></S.InputComent>
+        <S.InputImage placeholder="Compartilhe sua fotinha"  onChange={(e)=> setUrlImage(e.target.value)} value={urlImage}  ></S.InputImage>
+     
+
+
+     
         <S.Options/>
         <S.RateEmojis>
-         <S.Rate>😞</S.Rate>
-        <S.Rate>😐</S.Rate>
-        <S.Rate>🙂</S.Rate>
-        <S.Rate>😀</S.Rate>
+         <S.Rate onClick={()=> setRateNote("1")} value={rateNote} >😞</S.Rate>
+        <S.Rate  onClick={()=> setRateNote("2")}  value={rateNote} >😐</S.Rate>
+        <S.Rate onClick={()=> setRateNote("3")}  value={rateNote} >🙂</S.Rate>
+        <S.Rate  onClick={()=> setRateNote("4")} value={rateNote}  >😀</S.Rate>
         </S.RateEmojis>
       
+      <InsertButton coment={coment} urlImage={urlImage} localization={localization}  rateNote={rateNote} latitude={latitude} longitude={longitude} localizationName={localizationName} />
     </S.ContainerPublish>
 
     </>)
