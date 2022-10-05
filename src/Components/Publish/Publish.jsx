@@ -3,13 +3,11 @@ import axios from "axios"
 import Emoji from "../Emojis/Emojis.jsx"
 import { useNavigate } from "react-router-dom"
 
-export default function Publish({coment , urlImage ,rateNote , localizationName , user  , login ,id }){
+export default function Publish({coment , urlImage ,rateNote , localizationName , user  , login ,id , latitude , longitude }){
 
    
     const navigate=useNavigate()
-    function goToLocal(){
-        console.log("indo pra loc")
-    }
+
     function update(){
         console.log("atualizando")
     }
@@ -39,11 +37,14 @@ export default function Publish({coment , urlImage ,rateNote , localizationName 
             <S.UserImage src={user.urlImage}/>
 
             <S.PublishInfo>
+              
             <S.UserName onClick={goToProfile} >{user.name}</S.UserName>
-            <S.Localization onClick={goToLocal} >
+            <a href={`https://maps.google.com/?q=${latitude},${longitude}`} target='_blank' >
+            <S.Localization  >
                 <S.LocalIcon><ion-icon name="location-outline"></ion-icon></S.LocalIcon>
                 <S.LocalName>{localizationName}</S.LocalName>
             </S.Localization>
+            </a>
             </S.PublishInfo>
 
             </S.User>

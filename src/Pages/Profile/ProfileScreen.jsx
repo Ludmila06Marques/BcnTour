@@ -37,7 +37,7 @@ export default function ProfileScreen(){
      <ProfileNavBarr id={id} />
      <ProfileInfo id={id} login={login} />
      <OptionsProfile  />
-   {userPublishes.map((item , index)=> <Publish setPublishes={setUserPublishes}  key={index}  id={item.id} login={login} coment={item.coment} urlImage={item.urlImage} localizationName={item.localization.name} rateNote={item.rateNote} user={item.user}/>)}
+   {userPublishes.map((item , index)=> <Publish setPublishes={setUserPublishes}  key={index}  id={item.id} login={login} coment={item.coment} urlImage={item.urlImage} localizationName={item.localization.name}  longitude={item.localization.longitude} latitude={item.localization.latitude} rateNote={item.rateNote} user={item.user}/>)}
   
     </>)
 }
