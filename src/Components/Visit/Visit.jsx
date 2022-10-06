@@ -1,6 +1,7 @@
 import { useState , useEffect} from "react"
 import * as S from "./style.js"
 import axios from "axios"
+import Loading from "../loading/Loading.jsx"
 
 export default function Visit({ local , id}){
     
@@ -40,12 +41,12 @@ console.log(locationFilter)
 
         <S.LocalizationName><h1>{item.localization.name}</h1></S.LocalizationName>
         <S.Date><h1>{item.localization.createdAt}</h1></S.Date>
-        </S.VistiBox> </a>)  : locationFilter.map((item , index)=>     <a href={`https://maps.google.com/?q=${item.localization.latitude},${item.localization.longitude}`} target='_blank' ><S.VistiBox>
+        </S.VistiBox> </a>)  :locationFilter.length===0 ?  <Loading/> :  locationFilter.map((item , index)=>     <a href={`https://maps.google.com/?q=${item.localization.latitude},${item.localization.longitude}`} target='_blank' ><S.VistiBox>
         <S.Icon><ion-icon name="location-outline"></ion-icon></S.Icon>
 
         <S.LocalizationName><h1>{item.localization.name}</h1></S.LocalizationName>
         <S.Date><h1>{item.localization.createdAt}</h1></S.Date>
-        </S.VistiBox> </a>) }
+        </S.VistiBox> </a>)  }
 
     </S.ContainerVisit>
     </>)

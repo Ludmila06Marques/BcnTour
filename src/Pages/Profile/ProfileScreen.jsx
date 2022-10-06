@@ -8,6 +8,8 @@ import OptionsProfile from "../../Components/OptionsProfile/OptionsProfile"
 import appContext from "../../Contexts/AppContext.js"
 import Emoji from "../../Components/Emojis/Emojis"
 import Publish from "../../Components/Publish/Publish.jsx"
+import Loading from "../../Components/loading/Loading.jsx"
+import More from "../../Components/More/More.jsx"
 
 
 
@@ -37,7 +39,7 @@ export default function ProfileScreen(){
      <ProfileNavBarr id={id} />
      <ProfileInfo id={id} login={login} />
      <OptionsProfile  />
-   {userPublishes.map((item , index)=> <Publish setPublishes={setUserPublishes}  key={index}  id={item.id} login={login} coment={item.coment} urlImage={item.urlImage} localizationName={item.localization.name}  longitude={item.localization.longitude} latitude={item.localization.latitude} rateNote={item.rateNote} user={item.user}/>)}
-  
+   {userPublishes.length === 0 ?<Loading/> : userPublishes.map((item , index)=> <Publish setPublishes={setUserPublishes}  key={index}  id={item.id} login={login} coment={item.coment} urlImage={item.urlImage} localizationName={item.localization.name}  longitude={item.localization.longitude} latitude={item.localization.latitude} rateNote={item.rateNote} user={item.user}/>)}
+  <More/>
     </>)
 }

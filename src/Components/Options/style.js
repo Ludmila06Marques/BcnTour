@@ -7,6 +7,7 @@ justify-content: center;
 align-items: center;
 margin: 5px;
 
+
 :hover{
   cursor: pointer;
 }
@@ -30,7 +31,7 @@ align-items: center;
 width: 100%;
 
 `
-export const OptionName=styled.div`
+export const OptionName=styled.button`
 display: flex;
 justify-content: center;
 align-items: center;
@@ -42,6 +43,13 @@ height: 50px;
 color: #94a5cb;
 font-weight: bold;
 border: solid 1px #94a5cb;
+font-size: 15px;
+:active {
+            transform: scale(1.1);
+            /* Scaling button to 0.98 to its original size */
+            box-shadow: 5px 5px 22px 5px rgba(0, 0, 0, 0.24);
+            /* Lowering the shadow */
+        }
 `
 
 //display: ${props => props.view ? "flex": "none"};

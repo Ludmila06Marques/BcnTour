@@ -10,6 +10,7 @@ import appContext from "../../Contexts/AppContext.js"
 import Emoji from "../../Components/Emojis/Emojis"
 import charge from "../../img/charge.png"
 import Publish from "../../Components/Publish/Publish.jsx"
+import Loading from "../../Components/loading/Loading.jsx"
 
 
 
@@ -25,14 +26,14 @@ export default function HomeScreen(){
         try {
 
             const promise= await axios.get(`http://localhost:5000/publish` )  
-       
+     
           setPublishes([...promise.data])
          
         
         } catch (error) {
             console.log(error)
         }
-    },[publishes])
+    },[])
 console.log(publishes)
    
     return(<>
@@ -41,7 +42,8 @@ console.log(publishes)
     <SideBarr login={login} />
     <Options publishes={publishes} setPublishes={setPublishes} />
   
-    {publishes.map((item , index)=>  
+  
+   {publishes.length === 0 ? <Loading/> :  publishes.map((item , index)=>  
     <Publish key={index} id={item.id} setPublishes={setPublishes} login={login} coment={item.coment} urlImage={item.urlImage} localizationName={item.localization.name}  rateNote={item.rateNote} user={item.user} longitude={item.localization.longitude} latitude={item.localization.latitude}/>)}
 
    <More/>

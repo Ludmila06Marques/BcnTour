@@ -63,7 +63,7 @@ export default function Publish({coment , urlImage ,rateNote , localizationName 
         <S.Coment>
             <S.Text>{coment}</S.Text>
         </S.Coment>
-        <S.Rate> <S.Emoji >{rateNote}</S.Emoji></S.Rate>
+        <S.Rate> <S.Emoji >{rateNote=="4"? <h1>😀</h1> : rateNote== "3"? <h1>🙂</h1> : rateNote=="2" ? <h1>😐</h1> : rateNote=="1" ? <h1>😞</h1> : "?" }</S.Emoji></S.Rate>
         </S.UnderInfo>
     
     </S.ContainerPublish>

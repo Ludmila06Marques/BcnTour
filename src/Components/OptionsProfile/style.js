@@ -30,17 +30,24 @@ align-items: center;
 overflow-x: scroll;
 
 `
-export const OptionName=styled.div`
+export const OptionName=styled.button`
 display: flex;
 justify-content: center;
 align-items: center;
 margin-right: 2px;
 margin-top: 2px;
 border-radius: 8px;
-font-size: 16px;
+font-size: 15px;
 width: 100px;
 height: 45px;
 color: #94a5cb;
 font-weight: bold;
 border: solid 1px #94a5cb;
+
+:active {
+            transform: scale(1.1);
+            /* Scaling button to 0.98 to its original size */
+            box-shadow: 5px 5px 22px 5px rgba(0, 0, 0, 0.24);
+            /* Lowering the shadow */
+        }
 `

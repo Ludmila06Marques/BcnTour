@@ -6,21 +6,9 @@ import appContext from "../../Contexts/AppContext.js"
 
 function OneOption({id  , name , setPublishes , publishes}){
  
-    const { setAppear  , setDesappear , choose , setChoose  }= useContext(appContext)
+    const {  choose , setChoose  }= useContext(appContext)
     
   
-   
-
-     function chooseOption(){
-      console.log("cloquei")
-
-      setAppear(true)
-      setDesappear(false)
-    }
-console.log(choose)
-  
-
-   
     return(
         
         <S.ContainerOption   onClick={()=> setChoose(`${id}`)} value={choose}>
@@ -32,7 +20,7 @@ console.log(choose)
 
 
   export default function Options({setPublishes , publishes}){
-    const { setOptions, options }= useContext(appContext)
+    const { setOptions, options,choose}= useContext(appContext)
   
     useEffect(async ()=>{
           
@@ -51,9 +39,10 @@ console.log(choose)
 
 
     return(<>
+    <S.Actividad>Actividad:${choose}</S.Actividad>
        <S.Container>
     {options.map( (item , index) =>  
-       <OneOption id={item.id} name={item.name} image={item.image} key={index} setPublishes={setPublishes} publishes={publishes} /> )}
+       <OneOption id={item.id} name={item.name} image={item.image} key={index} setPublishes={setPublishes} publishes={publishes} item={item}/> )}
        </S.Container>
     </>)
 
