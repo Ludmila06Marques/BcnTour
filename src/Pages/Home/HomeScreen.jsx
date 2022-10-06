@@ -1,14 +1,11 @@
 import * as S from "./style.js"
 import axios from "axios"
 import { useEffect , useContext} from "react"
-import { useNavigate } from "react-router-dom"
 import NavBarr from "../../Components/NavBarr/NavBarr.jsx"
 import SideBarr from "../../Components/SideBarr/SideBarr.jsx"
 import Options from "../../Components/Options/Options.jsx"
 import More from "../../Components/More/More.jsx"
 import appContext from "../../Contexts/AppContext.js"
-import Emoji from "../../Components/Emojis/Emojis"
-import charge from "../../img/charge.png"
 import Publish from "../../Components/Publish/Publish.jsx"
 import Loading from "../../Components/loading/Loading.jsx"
 
@@ -33,7 +30,7 @@ export default function HomeScreen(){
         } catch (error) {
             console.log(error)
         }
-    },[])
+    },[publishes])
 console.log(publishes)
    
     return(<>

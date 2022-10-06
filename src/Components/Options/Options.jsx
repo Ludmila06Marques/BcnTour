@@ -44,9 +44,11 @@ function OneOption({id  , name , setPublishes}){
   export default function Options({setPublishes , publishes}){
     const { setOptions, options }= useContext(appContext)
   
+ 
+ 
     useEffect(async ()=>{
-          
-         try  {
+      
+        try  {
             const promise=await axios.get('http://localhost:5000/option')  
           
           
@@ -56,14 +58,27 @@ function OneOption({id  , name , setPublishes}){
         } catch (error) {
             console.log(error)
         }
-    },[])
+  },[])
 
+      async function getAll(){
+        setPublishes([])
+        try {
 
+            const promise= await axios.get(`http://localhost:5000/publish` )  
+     
+          setPublishes([...promise.data])
+         
+        
+        } catch (error) {
+      }}
 
     return(<>
        <S.Container>
     {options.map( (item , index) =>  
        <OneOption id={item.id} name={item.name} image={item.image} key={index} index={index} setPublishes={setPublishes} publishes={publishes} /> )}
+          <S.ContainerOption  onClick={getAll} >
+              <S.OptionName  >Todas</S.OptionName>
+     </S.ContainerOption>
        </S.Container>
     </>)
 
