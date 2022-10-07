@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const ContainerOption=styled.div`
 position: relative;
 display: flex;
@@ -30,6 +31,7 @@ margin-top: 10px;
 align-items: center;
 width: 100%;
 
+
 `
 export const OptionName=styled.button`
 display: flex;
@@ -40,9 +42,9 @@ margin-top: 2px;
 border-radius: 8px;
 width: 95px;
 height: 50px;
-color: #94a5cb;
+color: ${({theme})=> theme.colorBlack};
 font-weight: bold;
-border: solid 1px #94a5cb;
+border: ${({theme})=> theme.borderOption};
 font-size: 15px;
 :active {
             transform: scale(1.1);

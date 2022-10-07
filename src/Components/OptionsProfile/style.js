@@ -29,6 +29,7 @@ margin-top: 10px;
 align-items: center;
 overflow-x: scroll;
 
+
 `
 export const OptionName=styled.button`
 display: flex;
@@ -40,9 +41,9 @@ border-radius: 8px;
 font-size: 15px;
 width: 100px;
 height: 45px;
-color: #94a5cb;
+color:${({theme})=> theme.colorBlack};
 font-weight: bold;
-border: solid 1px #94a5cb;
+border:${({theme})=> theme.borderOption};
 
 :active {
             transform: scale(1.1);

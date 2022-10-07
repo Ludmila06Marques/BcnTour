@@ -16,7 +16,7 @@ export default function SignUpScreen(){
     
     async  function  signup(){
         const body={email ,password, name  , country , urlImage }       
-        console.log(body)
+        
         try {
             const promise= await axios.post('http://localhost:5000/sign-up' , body)  
             console.log(promise.data)  

@@ -1,6 +1,7 @@
 import * as S from "./style.js"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+import Switch from "../Swich/Switch.jsx"
 
 
 export default function OptionsToSetting({login}){
@@ -28,6 +29,7 @@ export default function OptionsToSetting({login}){
         <S.ContainerOptions>
         <S.Icon><ion-icon name="moon"></ion-icon></S.Icon>
             <S.Option>Modo escuro</S.Option>
+            <Switch/>
         </S.ContainerOptions>
 
         <S.ContainerOptions onClick={deleteAcount} >

@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom"
 
 export default function LoginScreen(){
        const navigate= useNavigate()
-        const {setEmail , email , setPassword , password , setName , name , setCity , city , setCountry , country , setUrlImage , urlImage, setLogin , login }= useContext(appContext)
+        const {setEmail , email , setPassword , password , setName , name , setCity , city , setCountry , country , setUrlImage , urlImage, setLogin , login , setTheme }= useContext(appContext)
 
     async function toLogin(){
         const body={email ,password }   
@@ -22,6 +22,7 @@ export default function LoginScreen(){
             const promise= await axios.post('http://localhost:5000/login' , body)  
            
             setLogin(promise.data.user)
+            setTheme(promise.data.user.mode)
             navigate("/home")
         } catch (error) {
             console.log(error)

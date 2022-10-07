@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 
 export const UserImage=styled.img`
-background-color: white;
 border-radius: 50px;
 width: 45px;
 height: 45px;
@@ -37,18 +36,19 @@ margin-top: 15px;
 margin-bottom: 50px;
 width: 100%;
 height: 500px;
-background-color:white;
-box-shadow: 0 0 1em black;
+background-color:${({theme})=> theme.colorContainer};
+box-shadow: 0 0 1em #94a5cb;
 width: 100%;
 
 
 `
 export const Photo=styled.img`
-margin-top: 5px;
+margin-top: 14px;
 width: 350px;
 height: 350px;
-padding: 10px 10px 10px 10px;
-//background-color:#cdf4f4;
+
+
+box-shadow: 0 0 10px black;
 
 `
 export const Coment=styled.div`
@@ -62,7 +62,7 @@ height:auto;
 export const Text=styled.h1`
 
 font-size: 15px;
-color: black;
+color: ${({theme})=> theme.colorUserName};
 font-weight: bold;
 `
 export const UserInfo=styled.div`
@@ -90,7 +90,7 @@ export const UserName=styled.h1`
 margin-left: 5px;
 font-size: 18px;
 font-weight: bold;
-color: black;
+color:${({theme})=> theme.colorUserName};
 `
 
 
@@ -108,7 +108,7 @@ justify-content: center;
 export const LocalIcon=styled.div`
 ion-icon{
   font-size: 20px;
-  color: black;
+  color:${({theme})=> theme.colorUserName};
   font-weight: bold;
 }
 `
@@ -121,7 +121,7 @@ align-items: center;
 export const LocalName=styled.h1`
 
 font-size: 16px;
-color: black;
+color: ${({theme})=> theme.colorUserName};
 font-weight: bold;
 `
 export const Rate=styled.div`
@@ -149,7 +149,7 @@ ion-icon{
 
 
 font-size: 25px;
-color: black;
+color:${({theme})=> theme.colorUserName};
 margin-left: 5px;
 :hover{
 cursor: pointer;
@@ -157,12 +157,15 @@ cursor: pointer;
 `
 export const Settings= styled.div`
 display: ${props => props.appearSettings ? "flex": "none"};
+background-color:${({theme})=> theme.colorIcons};
+border-radius:8px;
+
 
 flex-direction: column;
 ion-icon{
   
-    font-size: 25px;
-    color: black;
+    font-size: 28px;
+    color: ${({theme})=> theme.colorUserName};
     margin-left: 5px;
     :hover{
   cursor: pointer;
@@ -184,14 +187,14 @@ justify-content: center;
 export const ContainerModal=styled.div`
 width: 300px;
 height: 150px;
-background-color: white;
+background-color:${({theme})=> theme.colorUserName};
 position: relative;
 border-radius: 8px;
 box-shadow: (100,100,111, 0.2) 0px 7px 29px 0px;
 padding: 20px;
 ` 
 export const TextModal=styled.h1`
-color: black;
+color:${({theme})=> theme.colorContainer};
 font-size: 20px;
 font-weight: bold;
 

@@ -3,6 +3,7 @@ import axios from "axios"
 import appContext from "../../Contexts/AppContext"
 import { useContext, useState , useEffect} from "react"
 import Visit from "../../Components/Visit/Visit"
+import Loading from "../../Components/loading/Loading"
 export default function VisitsScreen(){
 
     const{login}=useContext(appContext)
@@ -24,6 +25,7 @@ export default function VisitsScreen(){
 
     return(<>
     <ProfileNavBarr id={login.id}/>
-    <Visit id={login.id} local={local} />
+    {local.length===0 ? <Loading/> :  <Visit id={login.id} local={local} />}
+   
     </>)
 }

@@ -4,7 +4,6 @@ import { useState } from "react"
 import LoginScreen from "./Pages/Login/LoginScreen.jsx"
 import SignUpScreen from "./Pages/SignUp/SignUpScreen.jsx"
 import HomeScreen from "./Pages/Home/HomeScreen.jsx"
-import OptionScreen from "./Pages/Option/OptionScreen.jsx"
 import ProfileScreen from "./Pages/Profile/ProfileScreen.jsx"
 
 import AboutUsScreen from "./Pages/AboutUs/AboutUsScreen.jsx"
@@ -14,6 +13,9 @@ import HelpScreen from "./Pages/Help/HelpScreen.jsx"
 import PublishScreen from "./Pages/Publish/PublishScreen.jsx"
 import VisitsScreen from "./Pages/Visits/VisitsScreen.jsx"
 import PlacesScreen from "./Pages/Places/PlacesScreen.jsx"
+import Themes from "./Components/Theme/Theme.js"
+import {ThemeProvider} from "styled-components"
+import Global from "./Components/Theme/Global.js"
 
 export default function App(){
     //login
@@ -46,10 +48,16 @@ export default function App(){
     //Options
     const  [optionName , setOptionName]=useState("")
 
+
+    //Theme
+    const  [theme , setTheme]=useState("ligth")
+
     return(<>
     
-    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken , name , setName    , country , setCountry , urlImage , setUrlImage , options , setOptions , login , setLogin , publishes , setPublishes , user , setUser , userPublishes , setUserPublishes ,choose , setChoose , setCountries , countries , latitude , setLatitude , longitude , setLongitude  , setLocalizationName , localizationName,optionName,setOptionName}} >
-    <BrowserRouter>
+    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken , name , setName    , country , setCountry , urlImage , setUrlImage , options , setOptions , login , setLogin , publishes , setPublishes , user , setUser , userPublishes , setUserPublishes ,choose , setChoose , setCountries , countries , latitude , setLatitude , longitude , setLongitude  , setLocalizationName , localizationName,optionName,setOptionName , theme , setTheme }} >
+    <ThemeProvider theme={Themes[theme]} >
+        <Global/>
+   <BrowserRouter>
     <Routes>
         
         <Route  path="/" element={<LoginScreen/>}></Route> 
@@ -62,9 +70,11 @@ export default function App(){
         <Route  path="/publish" element={<PublishScreen/>}></Route> 
         <Route  path="/visits" element={<VisitsScreen/>}></Route> 
         <Route  path="/places" element={<PlacesScreen/>}></Route> 
-
+       
     </Routes>    
     </BrowserRouter>
+   
+    </ThemeProvider>
     </appContext.Provider>
     
     </>)

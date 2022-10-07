@@ -53,7 +53,7 @@ margin-top: 2px;
 border-radius: 8px;
 width: 95px;
 height: 50px;
-color: #94a5cb;
+color:  ${({theme})=> theme.colorBlack};
 font-weight: bold;
 border: solid 1px #94a5cb;
 `
@@ -77,9 +77,17 @@ justify-content: center;
 align-items: center;
 position: fixed;
 bottom: 10px;
-background-color: blue;
+background-color: ${({theme})=> theme.colorBlack};
 width: 300px;
 height: 42px;
+border: none;
 border: 1 px solid blue;
 border-radius: 8px;
+color: ${({theme})=> theme.colorWhite};
+:active {
+            transform: scale(1.1);
+            /* Scaling button to 0.98 to its original size */
+            box-shadow: 5px 5px 22px 5px rgba(0, 0, 0, 0.24);
+            /* Lowering the shadow */
+        }
 `

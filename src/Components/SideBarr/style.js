@@ -8,7 +8,7 @@ flex-direction: column;
 z-index: 2;
 height: 100vh;
 width: 150px;
-background-color: #94a5cb ;
+background-color: ${({theme})=> theme.colorBlack};
 padding: 5px;
 ion-icon{
     font-size: 25px;

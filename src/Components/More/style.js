@@ -8,10 +8,10 @@ position: fixed;
 bottom:12px;
 right: 12px;
 border-radius: 100px;
-background-color: #94a5cb;
+background-color:${({theme})=> theme.colorOption};
 ion-icon{
   font-size: 50px;
-  color: white;
+  color: ${({theme})=> theme.colorContainer};
   
 
 }

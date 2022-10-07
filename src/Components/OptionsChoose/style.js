@@ -39,10 +39,10 @@ margin-top: 2px;
 border-radius: 8px;
 width: 95px;
 height: 50px;
-color: #94a5cb;
+color: ${({theme})=> theme.colorBlack};
 font-size: 15px;
 font-weight: bold;
-border: solid 1px #94a5cb;
+border:${({theme})=> theme.borderOption};
 :active {
             transform: scale(1.1);
             /* Scaling button to 0.98 to its original size */
@@ -55,5 +55,5 @@ border: solid 1px #94a5cb;
 
 export const Actividad=styled.h1`
 font-size: 20px;
-color: #94a5cb;
+color:${({theme})=> theme.colorBlack};
 `
