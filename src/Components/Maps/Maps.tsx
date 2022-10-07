@@ -50,7 +50,7 @@ export default function Maps(){
  
       >
         <StandaloneSearchBox onLoad={onLoad} onPlacesChanged={onPlacesChanged} >
-        <S.InputLocal placeholder="Insira a localizacao"onChange={(e : any)=> setLocalizationName(e.target.value)} value={localizationName} ></S.InputLocal>
+        <S.InputLocal placeholder="Insira a localizacao"onChange={(e : any)=> setLocalizationName(e.target.value)} value={localizationName} />
         </StandaloneSearchBox>
   
          <Marker  position={{lat:latitude , lng:longitude}}/>

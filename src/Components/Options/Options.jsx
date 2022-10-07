@@ -13,8 +13,9 @@ function OneOption({id  , name , setPublishes}){
     async function chooseOption(){
      
         setPublishes([])
-        setColor(true)
-  
+      
+        setColor(!color)
+     
           
         try  {
             const promise=await axios.get(`http://localhost:5000/publishOption/${id}`)  
@@ -30,7 +31,7 @@ function OneOption({id  , name , setPublishes}){
    
     }
 
-  
+
 
    
     return(
@@ -73,6 +74,7 @@ function OneOption({id  , name , setPublishes}){
         
         } catch (error) {
       }}
+     
 
     return(<>
        <S.Container>

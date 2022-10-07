@@ -58,8 +58,16 @@ font-weight: bold;
 border: solid 1px #94a5cb;
 `
 
-export const Rate=styled.h1`
+export const Rate=styled.button`
 font-size: 30px;
+border: none;
+background-color: transparent;
+:active {
+            transform: scale(1.1);
+            /* Scaling button to 0.98 to its original size */
+            box-shadow: 5px 5px 22px 5px rgba(0, 0, 0, 0.24);
+            /* Lowering the shadow */
+        }
 
 `
 export const RateEmojis=styled.div`
