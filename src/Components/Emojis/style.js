@@ -19,7 +19,7 @@ width: 100%;
 `
 export const Count=styled.h1`
 font-size: 15px;
-color: white;
+color:${({theme})=> theme.colorContainer};
 font-weight: bold;
 
 `

@@ -10,11 +10,17 @@ padding: 15px;
 align-items: center;
 width: 100%;
 height: 58px;
-background-color: #94a5cb;
+background-color:${({theme})=> theme.colorNavbar};
 
 ion-icon{
     font-size: 25px;
-    color: white;
+    color: ${({theme})=> theme.colorWhite};
+    :active {
+            transform: scale(1.1);
+            /* Scaling button to 0.98 to its original size */
+            box-shadow: 5px 5px 22px 5px rgba(0, 0, 0, 0.24);
+            /* Lowering the shadow */
+        }
 }
  `
 export const Separe=styled.div`
@@ -40,4 +46,10 @@ display: ${props => props.desappear ? "flex": "none"};
 :hover{
   cursor: pointer;
 }
+:active {
+            transform: scale(1.1);
+            /* Scaling button to 0.98 to its original size */
+            box-shadow: 5px 5px 22px 5px rgba(0, 0, 0, 0.24);
+            /* Lowering the shadow */
+        }
 `

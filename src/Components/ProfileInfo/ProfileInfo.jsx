@@ -3,6 +3,7 @@ import { LoginButton } from "../../Pages/Login/style.js"
 import * as S from "./style.js"
 import appContext from "../../Contexts/AppContext.js"
 import { useContext, useEffect, useState } from "react"
+import Emoji from "../Emojis/Emojis.jsx"
 
 
 
@@ -33,7 +34,25 @@ export default function ProfileInfo({id}){
      
         </S.GroupInfo>
         <S.Info>
-          
+        <S.RateEmojis>
+          <S.Together>
+         <S.Rate >😞</S.Rate>
+         <S.Number>10</S.Number>
+         </S.Together>
+         <S.Together>
+        <S.Rate  >😐</S.Rate>
+        <S.Number>10</S.Number>
+        </S.Together>
+        <S.Together>
+        <S.Rate>🙂</S.Rate>
+    
+        <S.Number>10</S.Number>
+        </S.Together>
+        <S.Together>
+        <S.Rate  >😀</S.Rate>
+        <S.Number>10</S.Number>
+        </S.Together>
+        </S.RateEmojis>
         </S.Info>
     </S.ProfileContainer>
     </>)

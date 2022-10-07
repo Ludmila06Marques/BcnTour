@@ -4,15 +4,17 @@ import * as S from "./style.js"
 import { useContext, useEffect, useState } from "react"
 import appContext from "../../Contexts/AppContext.js"
 
-function OneOption({id  , name , setPublishes , publishes}){
-    const { setAppear  , setDesappear   }= useContext(appContext)
+function OneOption({id  , name , setPublishes}){
+
     
-  
+    const [color , setColor]=useState(false)
    
 
     async function chooseOption(){
+     
         setPublishes([])
-   
+        setColor(true)
+  
           
         try  {
             const promise=await axios.get(`http://localhost:5000/publishOption/${id}`)  
@@ -25,8 +27,7 @@ function OneOption({id  , name , setPublishes , publishes}){
             console.log(error)
         }
 
-      setAppear(true)
-      setDesappear(false)
+   
     }
 
   
@@ -34,8 +35,8 @@ function OneOption({id  , name , setPublishes , publishes}){
    
     return(
         
-        <S.ContainerOption  onClick={chooseOption}>
-              <S.OptionName>{name}</S.OptionName>
+        <S.ContainerOption onClick={chooseOption} >
+              <S.OptionName color={color}  >{name}</S.OptionName>
      </S.ContainerOption>
     )
 
@@ -45,9 +46,11 @@ function OneOption({id  , name , setPublishes , publishes}){
   export default function Options({setPublishes , publishes}){
     const { setOptions, options }= useContext(appContext)
   
+ 
+ 
     useEffect(async ()=>{
-          
-         try  {
+      
+        try  {
             const promise=await axios.get('http://localhost:5000/option')  
           
           
@@ -57,14 +60,27 @@ function OneOption({id  , name , setPublishes , publishes}){
         } catch (error) {
             console.log(error)
         }
-    },[])
+  },[])
 
+      async function getAll(){
+        setPublishes([])
+        try {
 
+            const promise= await axios.get(`http://localhost:5000/publish` )  
+     
+          setPublishes([...promise.data])
+         
+        
+        } catch (error) {
+      }}
 
     return(<>
        <S.Container>
     {options.map( (item , index) =>  
-       <OneOption id={item.id} name={item.name} image={item.image} key={index} setPublishes={setPublishes} publishes={publishes} /> )}
+       <OneOption id={item.id} name={item.name} image={item.image} key={index} index={index} setPublishes={setPublishes} publishes={publishes} /> )}
+          <S.ContainerOption  onClick={getAll} >
+              <S.OptionName  >Todas</S.OptionName>
+     </S.ContainerOption>
        </S.Container>
     </>)
 

@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom"
 
 
 
-function InsertButton({coment , urlImage , rateNote , localizationName , latitude , longitude }){
+function InsertButton({coment , urlImage , rateNote , localizationName , latitude , longitude  , autocomplete}){
  const    navigate=useNavigate()
     const {choose , login}=useContext(appContext)
  async  function publicar(){
@@ -21,7 +21,7 @@ function InsertButton({coment , urlImage , rateNote , localizationName , latitud
     coment,
     urlImage,
     rateNote,
-    localizationName,
+    localizationName: autocomplete,
     localizationLat:latitude+"",
     localizationLong:longitude+"",
     optionId:Number(choose),
@@ -60,7 +60,7 @@ export default function NewPublish(){
      const [localization , seLlocalization]=useState("")
     
 
-    const {publishes , setPublishes , localizationName , latitude , longitude  }=useContext(appContext)
+    const {publishes , setPublishes , localizationName , latitude , longitude ,autocomplete  }=useContext(appContext)
 
     return(<> 
     <S.ContainerPublish>
@@ -80,7 +80,7 @@ export default function NewPublish(){
         <S.Rate  onClick={()=> setRateNote("4")} value={rateNote}  >😀</S.Rate>
         </S.RateEmojis>
       
-      <InsertButton coment={coment} urlImage={urlImage} localization={localization}  rateNote={rateNote} latitude={latitude} longitude={longitude} localizationName={localizationName} />
+      <InsertButton coment={coment} urlImage={urlImage} localization={localization}  rateNote={rateNote} latitude={latitude} longitude={longitude} localizationName={localizationName} autocomplete={autocomplete} />
     </S.ContainerPublish>
 
     </>)

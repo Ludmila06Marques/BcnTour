@@ -30,7 +30,7 @@ align-items: center;
 width: 100%;
 
 `
-export const OptionName=styled.div`
+export const OptionName=styled.button`
 display: flex;
 justify-content: center;
 align-items: center;
@@ -39,9 +39,21 @@ margin-top: 2px;
 border-radius: 8px;
 width: 95px;
 height: 50px;
-color: #94a5cb;
+color: ${({theme})=> theme.colorBlack};
+font-size: 15px;
 font-weight: bold;
-border: solid 1px #94a5cb;
+border:${({theme})=> theme.borderOption};
+:active {
+            transform: scale(1.1);
+            /* Scaling button to 0.98 to its original size */
+            box-shadow: 5px 5px 22px 5px rgba(0, 0, 0, 0.24);
+            /* Lowering the shadow */
+        }
 `
 
 //display: ${props => props.view ? "flex": "none"};
+
+export const Actividad=styled.h1`
+font-size: 20px;
+color:${({theme})=> theme.colorBlack};
+`
