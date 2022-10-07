@@ -1,5 +1,5 @@
 import * as S from "./style.js"
-import loading from "../../img/loading.jpg"
+import loading from "../../img/notFound.png"
 
 
 export default function Loading(){

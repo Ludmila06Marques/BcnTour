@@ -44,6 +44,7 @@ export default function App(){
     const [localizationName , setLocalizationName]=useState("")
     const [latitude , setLatitude ]=useState(0)
     const [longitude , setLongitude ]=useState(0)
+    const [autocomplete , setAutocomplete]=useState("")
 
     //Options
     const  [optionName , setOptionName]=useState("")
@@ -54,7 +55,7 @@ export default function App(){
 
     return(<>
     
-    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken , name , setName    , country , setCountry , urlImage , setUrlImage , options , setOptions , login , setLogin , publishes , setPublishes , user , setUser , userPublishes , setUserPublishes ,choose , setChoose , setCountries , countries , latitude , setLatitude , longitude , setLongitude  , setLocalizationName , localizationName,optionName,setOptionName , theme , setTheme }} >
+    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken , name , setName    , country , setCountry , urlImage , setUrlImage , options , setOptions , login , setLogin , publishes , setPublishes , user , setUser , userPublishes , setUserPublishes ,choose , setChoose , setCountries , countries , latitude , setLatitude , longitude , setLongitude  , setLocalizationName , localizationName,optionName,setOptionName , theme , setTheme  , autocomplete , setAutocomplete}} >
     <ThemeProvider theme={Themes[theme]} >
         <Global/>
    <BrowserRouter>

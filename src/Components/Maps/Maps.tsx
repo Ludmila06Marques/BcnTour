@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import React from 'react';
 export default function Maps(){
  
-  const{latitude , setLatitude , longitude , setLongitude , setLocalizationName , localizationName}=useContext(appContext)
+  const{latitude , setLatitude , longitude , setLongitude , setLocalizationName , localizationName , setAutocomplete}=useContext(appContext)
 
 
       const [map , setMap]=useState<google.maps.Map>()
@@ -15,15 +15,18 @@ export default function Maps(){
 
     const onPlacesChanged=()=>{
       const places= searchBox!.getPlaces()
-      console.log(places)
+    
       const place = places![0]
-
+     
+    
       const location={
         lat: place?.geometry?.location?.lat() || 0,
         lng: place?.geometry?.location?.lng() || 0
       }
+    
      setLatitude(location.lat)
      setLongitude(location.lng)
+     setAutocomplete(place.name)
       map?.panTo(location)
     }
 

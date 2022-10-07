@@ -30,8 +30,10 @@ export default function HomeScreen(){
         } catch (error) {
             console.log(error)
         }
-    },[publishes])
-console.log(publishes)
+    },[])
+
+    const arrayReverse= publishes.reverse()
+
    
     return(<>
     <S.ContainerHome>
@@ -40,7 +42,7 @@ console.log(publishes)
     <Options publishes={publishes} setPublishes={setPublishes} />
   
   
-   {publishes.length === 0 ? <Loading/> :  publishes.map((item , index)=>  
+   {arrayReverse.length === 0 ? <Loading/> :  publishes.map((item , index)=>  
     <Publish key={index} id={item.id} setPublishes={setPublishes} login={login} coment={item.coment} urlImage={item.urlImage} localizationName={item.localization.name}  rateNote={item.rateNote} user={item.user} longitude={item.localization.longitude} latitude={item.localization.latitude}/>)}
 
    <More/>

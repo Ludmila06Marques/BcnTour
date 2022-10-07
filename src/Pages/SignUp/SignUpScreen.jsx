@@ -48,14 +48,14 @@ export default function SignUpScreen(){
   
     <Logo  />
     <S.ContainerInputs>
-        <S.InputName type="text" placeholder="Name" onChange={(e)=> setName(e.target.value)} value={name}></S.InputName>
+        <S.InputName type="text" placeholder="Nombre" onChange={(e)=> setName(e.target.value)} value={name}></S.InputName>
 
 
         <S.ContainerInputsCity>
             
             <S.ContainerSelect>
             <Select
-            defaultValue={{ label:"De onde voce é?" , value:"empty"}}
+            defaultValue={{ label:"De  donde eres?" , value:"empty"}}
             options= {countries === undefined ? "" : countries.map(e=>({label:e.nome, value:e.value}))}
             onChange={selectCountry}
          
@@ -65,14 +65,14 @@ export default function SignUpScreen(){
         </S.ContainerInputsCity>
 
 
-        <S.InputImage type="url" placeholder="Sua melhor foto"onChange={(e)=> setUrlImage(e.target.value)}  value={urlImage}></S.InputImage>
+        <S.InputImage type="url" placeholder="Tu mejor foto"onChange={(e)=> setUrlImage(e.target.value)}  value={urlImage}></S.InputImage>
         <S.InputEmail type="text" placeholder="Email" onChange={(e)=> setEmail(e.target.value)}  value={email} ></S.InputEmail>
-        <S.InputPassword type="password" placeholder="Password" onChange={(e)=> setPassword(e.target.value)}  value={password}></S.InputPassword>
+        <S.InputPassword type="password" placeholder="Contraseña" onChange={(e)=> setPassword(e.target.value)}  value={password}></S.InputPassword>
        
-        <S.SignUpButton onClick={signup} >Cadastrar</S.SignUpButton>
+        <S.SignUpButton onClick={signup} >Registrar-se</S.SignUpButton>
        
         <Link to="/" >
-        <S.SendToLogin>Ja tem conta?Entre!</S.SendToLogin>
+        <S.SendToLogin>Ya tienes cuenta?Entre!</S.SendToLogin>
         </Link>
      </S.ContainerInputs>
     

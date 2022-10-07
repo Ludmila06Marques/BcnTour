@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const ContainerSelect=styled.div`
 width: 256px;
-
 margin-bottom:10px;
 border-radius: 8px;
 border: ${({theme})=> theme.borderOption};

@@ -7,11 +7,13 @@ import appContext from "../../Contexts/AppContext.js"
 function OneOption({id  , name , setPublishes}){
 
     
-  
+    const [color , setColor]=useState(false)
    
 
     async function chooseOption(){
+     
         setPublishes([])
+        setColor(true)
   
           
         try  {
@@ -33,8 +35,8 @@ function OneOption({id  , name , setPublishes}){
    
     return(
         
-        <S.ContainerOption  onClick={chooseOption} >
-              <S.OptionName  >{name}</S.OptionName>
+        <S.ContainerOption onClick={chooseOption} >
+              <S.OptionName color={color}  >{name}</S.OptionName>
      </S.ContainerOption>
     )
 
