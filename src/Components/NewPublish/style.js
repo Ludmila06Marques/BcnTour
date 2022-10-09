@@ -79,6 +79,16 @@ width: 100%;
 
 `
 
+export const AskRate=styled.h1`
+
+
+font-size: 20px;
+color:${({theme})=> theme.colorBlack};
+
+
+
+
+`
 export const Container=styled.button`
 display: flex;
 justify-content: center;

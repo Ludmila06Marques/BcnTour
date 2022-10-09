@@ -4,9 +4,9 @@ import { useContext } from "react"
 import { Link } from "react-router-dom"
 
 
-export default function SideBarr({login}){
+export default function SideBarr(){
       
-    const { view  }= useContext(appContext)
+    const { view  , login}= useContext(appContext)
  
 
 

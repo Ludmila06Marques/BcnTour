@@ -57,3 +57,4 @@ export const Actividad=styled.h1`
 font-size: 20px;
 color:${({theme})=> theme.colorBlack};
 `
+

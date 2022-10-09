@@ -7,25 +7,11 @@ import { useEffect,useState } from "react"
 
 
 
-export default function ProfileNavBarr({id}){
- 
-  const [info ,setInfo]=useState([])
+export default function ProfileNavBarr(){
 
-  useEffect(async ()=>{
-    try {
-            
-      const promise= await axios.get(`http://localhost:5000/user/${id}` )  
- 
-     setInfo(promise.data)
-   
-  
-  } catch (error) {
-      console.log(error)
-  }
-  },[])
 
     const navigate =useNavigate()
-    const {setView , setViewNavBarr , setAppear , setDesappear }= useContext(appContext)
+    const {setView , setViewNavBarr , setAppear , setDesappear, login }= useContext(appContext)
     function goHome(){
         setAppear(false)
         setDesappear(true)
@@ -36,7 +22,7 @@ export default function ProfileNavBarr({id}){
 
     return (<>
   <S.ContainerNavBarr>
-<S.UserName>{info.name}</S.UserName>
+<S.UserName>{login.name}</S.UserName>
 
 <ion-icon onClick={goHome} name="chevron-back-outline"></ion-icon>
 

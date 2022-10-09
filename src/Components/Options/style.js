@@ -42,7 +42,7 @@ margin-top: 2px;
 border-radius: 8px;
 width: 95px;
 height: 50px;
-background-color: ${props => props.color ? "red": "green"};
+background-color: ${props => props.color ? "#D2C4E2": "transparent"};
 color: ${({theme})=> theme.colorBlack};
 font-weight: bold;
 border: ${({theme})=> theme.borderOption};

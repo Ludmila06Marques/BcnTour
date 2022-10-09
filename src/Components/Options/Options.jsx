@@ -4,21 +4,22 @@ import * as S from "./style.js"
 import { useContext, useEffect, useState } from "react"
 import appContext from "../../Contexts/AppContext.js"
 
-function OneOption({id  , name , setPublishes}){
+function OneOption({optionId  , name , setPublishes }){
 
-    
+  
     const [color , setColor]=useState(false)
-   
+
+   let array=[]
 
     async function chooseOption(){
-     
+   
         setPublishes([])
       
         setColor(!color)
-     
+    
           
         try  {
-            const promise=await axios.get(`http://localhost:5000/publishOption/${id}`)  
+            const promise=await axios.get(`http://localhost:5000/publishOption/${optionId}`)  
           
           console.log(promise.data)
             setPublishes(promise.data)
@@ -32,6 +33,7 @@ function OneOption({id  , name , setPublishes}){
     }
 
 
+console.log(array)
 
    
     return(
@@ -62,6 +64,7 @@ function OneOption({id  , name , setPublishes}){
             console.log(error)
         }
   },[])
+ 
 
       async function getAll(){
         setPublishes([])
@@ -79,7 +82,7 @@ function OneOption({id  , name , setPublishes}){
     return(<>
        <S.Container>
     {options.map( (item , index) =>  
-       <OneOption id={item.id} name={item.name} image={item.image} key={index} index={index} setPublishes={setPublishes} publishes={publishes} /> )}
+       <OneOption optionId={item.id} name={item.name} image={item.image} key={index} index={index} setPublishes={setPublishes} publishes={publishes}  /> )}
           <S.ContainerOption  onClick={getAll} >
               <S.OptionName  >Todas</S.OptionName>
      </S.ContainerOption>

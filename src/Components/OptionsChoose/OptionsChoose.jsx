@@ -6,21 +6,26 @@ import appContext from "../../Contexts/AppContext.js"
 
 function OneOption({id  , name , setPublishes , publishes}){
  
-    const {  choose , setChoose  }= useContext(appContext)
+    const {  choose , setChoose, setNameOption }= useContext(appContext)
     
+   function chooseAnOPtion(){
+    setChoose(id)
+    setNameOption(name)
+    
+   }
   
     return(
         
-        <S.ContainerOption   onClick={()=> setChoose(`${id}`)} value={choose}>
+        <S.ContainerOption   onClick={chooseAnOPtion} value={choose}>
               <S.OptionName>{name}</S.OptionName>
      </S.ContainerOption>
     )
 
 }
 
-
-  export default function Options({setPublishes , publishes}){
-    const { setOptions, options,choose}= useContext(appContext)
+function ContainerOption({setPublishes , publishes}){
+    const { setOptions, options}= useContext(appContext)
+  
   
     useEffect(async ()=>{
           
@@ -37,13 +42,25 @@ function OneOption({id  , name , setPublishes , publishes}){
     },[])
 
 
-
     return(<>
-    <S.Actividad>Actividad:${choose}</S.Actividad>
-       <S.Container>
+        <S.Container>
     {options.map( (item , index) =>  
        <OneOption id={item.id} name={item.name} image={item.image} key={index} setPublishes={setPublishes} publishes={publishes} item={item}/> )}
        </S.Container>
+    </>)
+}
+
+
+  export default function Options(){
+   
+
+    const {  nameOption}= useContext(appContext)
+    return(<>
+  
+    <S.Actividad>Cual fue tu actividad?: {nameOption} </S.Actividad>
+
+    <ContainerOption/>
+   
     </>)
 
 }

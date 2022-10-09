@@ -52,13 +52,14 @@ function InsertButton({coment , urlImage , rateNote , localizationName , latitud
 
 export default function NewPublish(){
     
-   
+
 
      const [coment , setComent]=useState("")
      const [urlImage , setUrlImage]=useState("")
      const [rateNote , setRateNote]=useState("")
      const [localization , seLlocalization]=useState("")
-    
+     const [emoji , setEmoji]=useState("")
+ 
 
     const {publishes , setPublishes , localizationName , latitude , longitude ,autocomplete  }=useContext(appContext)
 
@@ -73,6 +74,7 @@ export default function NewPublish(){
 
      
         <S.Options/>
+        <S.AskRate>Que nota le das ? {rateNote=="4"? "😀" : rateNote== "3" ? "🙂"  : rateNote=="2" ? "😐" : rateNote=="1" ? "😞" : "?" }</S.AskRate>
         <S.RateEmojis>
          <S.Rate onClick={()=> setRateNote("1")} value={rateNote} >😞</S.Rate>
         <S.Rate  onClick={()=> setRateNote("2")}  value={rateNote} >😐</S.Rate>

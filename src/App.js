@@ -16,13 +16,14 @@ import PlacesScreen from "./Pages/Places/PlacesScreen.jsx"
 import Themes from "./Components/Theme/Theme.js"
 import {ThemeProvider} from "styled-components"
 import Global from "./Components/Theme/Global.js"
+import EditScreen from "./Pages/EditScreen/EditScreen.jsx"
 
 export default function App(){
     //login
    const [email, setEmail]=useState("")
    const [password, setPassword]=useState("")
-   const [name , setName]=useState("")
    const [countries , setCountries]=useState([])
+   const [name , setName]=useState("")
    const [country , setCountry]=useState("")
    const [urlImage , setUrlImage]=useState("")
     const [token , setToken]=useState()
@@ -48,14 +49,14 @@ export default function App(){
 
     //Options
     const  [optionName , setOptionName]=useState("")
-
+    const  [nameOption , setNameOption]=useState("")
 
     //Theme
     const  [theme , setTheme]=useState("ligth")
 
     return(<>
     
-    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken , name , setName    , country , setCountry , urlImage , setUrlImage , options , setOptions , login , setLogin , publishes , setPublishes , user , setUser , userPublishes , setUserPublishes ,choose , setChoose , setCountries , countries , latitude , setLatitude , longitude , setLongitude  , setLocalizationName , localizationName,optionName,setOptionName , theme , setTheme  , autocomplete , setAutocomplete}} >
+    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken , name , setName    , country , setCountry , urlImage , setUrlImage , options , setOptions , login , setLogin , publishes , setPublishes , user , setUser , userPublishes , setUserPublishes ,choose , setChoose , setCountries , countries , latitude , setLatitude , longitude , setLongitude  , setLocalizationName , localizationName,optionName,setOptionName , theme , setTheme  , autocomplete , setAutocomplete , nameOption , setNameOption}} >
     <ThemeProvider theme={Themes[theme]} >
         <Global/>
    <BrowserRouter>
@@ -71,6 +72,7 @@ export default function App(){
         <Route  path="/publish" element={<PublishScreen/>}></Route> 
         <Route  path="/visits" element={<VisitsScreen/>}></Route> 
         <Route  path="/places" element={<PlacesScreen/>}></Route> 
+        <Route  path="/edit/:userId" element={<EditScreen/>}></Route> 
        
     </Routes>    
     </BrowserRouter>

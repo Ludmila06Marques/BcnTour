@@ -1,11 +1,13 @@
 import * as S from "./style.js"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 import Switch from "../Swich/Switch.jsx"
+import { useState } from "react"
 
 
 export default function OptionsToSetting({login}){
    
+    const [openModal , setOpenModal]=useState(false)
     const navigate=useNavigate()
    async function deleteAcount(){
         console.log(login.id)
@@ -23,7 +25,9 @@ export default function OptionsToSetting({login}){
     
         <S.ContainerOptions>
         <S.Icon><ion-icon name="pencil-outline"></ion-icon></S.Icon>
+        <Link to={`/edit/${login.id}`} >
             <S.Option>Editar perfil</S.Option>
+            </Link>
         </S.ContainerOptions>
 
         <S.ContainerOptions>
@@ -32,9 +36,19 @@ export default function OptionsToSetting({login}){
             <Switch/>
         </S.ContainerOptions>
 
-        <S.ContainerOptions onClick={deleteAcount} >
+        <S.ContainerOptions  onClick={()=>setOpenModal(true)}>
             <S.Icon><ion-icon name="trash-outline"></ion-icon></S.Icon>
-            <S.Option>Borrar cuenta</S.Option>
+            <S.Option   >Borrar cuenta</S.Option>
          </S.ContainerOptions>
+         <S.Overlay openModal={openModal} >
+        <S.ContainerModal>
+            <S.TextModal>Tem certeza que deseja excluir a publicacao?</S.TextModal>
+            <S.Buttons>
+                <S.Yes onClick={deleteAcount} >Yes</S.Yes>
+             
+            </S.Buttons>
+            <S.No onClick={()=>setOpenModal(false)} ><ion-icon name="close-circle-outline"></ion-icon></S.No>
+        </S.ContainerModal>
+        </S.Overlay>
     </>)
 }

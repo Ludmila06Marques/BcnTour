@@ -6,7 +6,7 @@ width: 256px;
 height: 45px;
 margin-bottom: 10px;
 border-radius: 8px;
-border:${({theme})=> theme.borderOption};
+border:solid 1px #94a5cb;
 padding: 10px;
 
 `
@@ -15,7 +15,7 @@ width: 256px;
 height: 45px;
 border-radius: 8px;
 border-radius: 8px;
-border:${({theme})=> theme.borderOption};
+border:solid 1px #94a5cb;
 padding: 10px;
 `
 export const ContainerInputs=styled.div`
@@ -31,7 +31,7 @@ height: 45px;
 margin-top: 10px;
 border-radius: 8px;
 border: none;
-background-color:${({theme})=> theme.colorBlack};
+background-color:#94a5cb;
 margin-bottom:7px;
 color: white;
 :hover{
@@ -47,7 +47,7 @@ color: white;
 export const SendToSignUp=styled.h1`
 
 text-decoration: underline;
-color:${({theme})=> theme.colorSignUp};
+color:#94a5cb;
 font-weight: bold;
 :hover{
   cursor: pointer;

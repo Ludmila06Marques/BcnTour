@@ -48,7 +48,7 @@ export default function SignUpScreen(){
   
     <Logo  />
     <S.ContainerInputs>
-        <S.InputName type="text" placeholder="Nombre" onChange={(e)=> setName(e.target.value)} value={name}></S.InputName>
+        <S.InputName type="text" placeholder="Nombre de usuario" onChange={(e)=> setName(e.target.value)} value={name}></S.InputName>
 
 
         <S.ContainerInputsCity>

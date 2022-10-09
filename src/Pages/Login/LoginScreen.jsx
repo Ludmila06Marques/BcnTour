@@ -26,6 +26,7 @@ export default function LoginScreen(){
             navigate("/home")
         } catch (error) {
             console.log(error)
+            alert(error)
         }
     }
   
