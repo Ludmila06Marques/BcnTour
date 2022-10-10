@@ -31,7 +31,7 @@ height: 45px;
 margin-top: 10px;
 border-radius: 8px;
 border: none;
-background-color:#94a5cb;
+background-color:${({theme})=> theme.colorBlack};
 margin-bottom:7px;
 color: white;
 :hover{
@@ -47,7 +47,7 @@ color: white;
 export const SendToSignUp=styled.h1`
 
 text-decoration: underline;
-color:#94a5cb;
+color:${({theme})=> theme.colorSignUp};
 font-weight: bold;
 :hover{
   cursor: pointer;

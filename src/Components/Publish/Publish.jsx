@@ -1,7 +1,7 @@
 import * as S from "./style.js"
 import axios from "axios"
 import Emoji from "../Emojis/Emojis.jsx"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import Modal from "../Modal/Modal.jsx"
 
@@ -65,7 +65,9 @@ function toggleButton(){
             <ion-icon onClick={toggleButton} name="ellipsis-horizontal-outline"></ion-icon>
             </S.Dots>
             <S.Settings  appearSettings={appearSettings} >
-            <ion-icon onClick={update}  name="pencil-sharp"></ion-icon>
+            <Link to={`/editPublish/${id}`}>
+            <ion-icon name="pencil-sharp"></ion-icon>
+            </Link>
             <ion-icon  onClick={()=>setOpenModal(true)} name="trash-outline"></ion-icon>
             </S.Settings>
             </S.Actions> : ''}

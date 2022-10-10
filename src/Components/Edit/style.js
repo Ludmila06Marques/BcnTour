@@ -80,7 +80,7 @@ border-radius: 8px;
 border: none;
 background-color:${({theme})=> theme.colorBlack};
 margin-bottom:7px;
-color: white;
+color:${({theme})=> theme.colorSignUp};
 :hover{
   cursor: pointer;
 }

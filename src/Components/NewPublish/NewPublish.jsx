@@ -5,6 +5,7 @@ import appContext from "../../Contexts/AppContext.js"
 import { useContext, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import Publish from '../Publish/Publish.jsx';
  
 
 
@@ -74,7 +75,7 @@ export default function NewPublish(){
 
      
         <S.Options/>
-        <S.AskRate>Que nota le das ? {rateNote=="4"? "😀" : rateNote== "3" ? "🙂"  : rateNote=="2" ? "😐" : rateNote=="1" ? "😞" : "?" }</S.AskRate>
+        <S.AskRate>Que nota le das ?  {rateNote=="4"? "😀" : rateNote== "3" ? "🙂"  : rateNote=="2" ? "😐" : rateNote=="1" ? "😞" : "?" }</S.AskRate>
         <S.RateEmojis>
          <S.Rate onClick={()=> setRateNote("1")} value={rateNote} >😞</S.Rate>
         <S.Rate  onClick={()=> setRateNote("2")}  value={rateNote} >😐</S.Rate>
@@ -84,6 +85,7 @@ export default function NewPublish(){
       
       <InsertButton coment={coment} urlImage={urlImage} localization={localization}  rateNote={rateNote} latitude={latitude} longitude={longitude} localizationName={localizationName} autocomplete={autocomplete} />
     </S.ContainerPublish>
+ 
 
     </>)
 }

@@ -17,6 +17,7 @@ import Themes from "./Components/Theme/Theme.js"
 import {ThemeProvider} from "styled-components"
 import Global from "./Components/Theme/Global.js"
 import EditScreen from "./Pages/EditScreen/EditScreen.jsx"
+import EditPublishScreen from "./Pages/EditPublishScreen/EditPublishScreen.jsx"
 
 export default function App(){
     //login
@@ -73,6 +74,7 @@ export default function App(){
         <Route  path="/visits" element={<VisitsScreen/>}></Route> 
         <Route  path="/places" element={<PlacesScreen/>}></Route> 
         <Route  path="/edit/:userId" element={<EditScreen/>}></Route> 
+        <Route  path="/editPublish/:publishId" element={<EditPublishScreen/>}></Route> 
        
     </Routes>    
     </BrowserRouter>
