@@ -109,3 +109,8 @@ color: ${({theme})=> theme.colorWhite};
             /* Lowering the shadow */
         }
 `
+export const ContainerMap=styled.div`
+width:100vw;
+height: 300px;
+
+`

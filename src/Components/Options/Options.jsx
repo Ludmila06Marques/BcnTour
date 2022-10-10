@@ -1,93 +1,93 @@
 import axios from "axios"
 import * as S from "./style.js"
-
 import { useContext, useEffect, useState } from "react"
 import appContext from "../../Contexts/AppContext.js"
 
-function OneOption({optionId  , name , setPublishes }){
+function OneOption({ optionId, name, setPublishes }) {
 
-  
-    const [color , setColor]=useState(false)
+  const { API_URI } = useContext(appContext)
+  const [color, setColor] = useState(false)
 
-   let array=[]
 
-    async function chooseOption(){
-   
-        setPublishes([])
-      
-        setColor(!color)
-    
-          
-        try  {
-            const promise=await axios.get(`http://localhost:5000/publishOption/${optionId}`)  
-          
-          console.log(promise.data)
-            setPublishes(promise.data)
-          
-            
-        } catch (error) {
-            console.log(error)
-        }
 
-   
+  async function chooseOption() {
+
+    setPublishes([])
+
+    setColor(!color)
+
+
+    try {
+      const promise = await axios.get(`${API_URI}publishOption/${optionId}`)
+
+
+      setPublishes(promise.data)
+
+
+    } catch (error) {
+      alert(error)
     }
 
 
-console.log(array)
+  }
 
-   
-    return(
-        
-        <S.ContainerOption onClick={chooseOption} >
-              <S.OptionName color={color}  >{name}</S.OptionName>
-     </S.ContainerOption>
-    )
+
+
+
+
+
+  return (
+
+    <S.ContainerOption onClick={chooseOption} >
+      <S.OptionName color={color}  >{name}</S.OptionName>
+    </S.ContainerOption>
+  )
 
 }
 
 
-  export default function Options({setPublishes , publishes}){
-    const { setOptions, options }= useContext(appContext)
-  
- 
- 
-    useEffect(async ()=>{
-      
-        try  {
-            const promise=await axios.get('http://localhost:5000/option')  
-          
-          
-            setOptions([...promise.data])
-            
-            
-        } catch (error) {
-            console.log(error)
-        }
-  },[])
- 
+export default function Options({ setPublishes }) {
+  const { API_URI } = useContext(appContext)
+  const [options, setOptions] = useState([])
 
-      async function getAll(){
-        setPublishes([])
-        try {
+  useEffect(async () => {
 
-            const promise= await axios.get(`http://localhost:5000/publish` )  
-     
-          setPublishes([...promise.data])
-         
-        
-        } catch (error) {
-      }}
-     
+    try {
+      const promise = await axios.get(`${API_URI}option`)
 
-    return(<>
-       <S.Container>
-    {options.map( (item , index) =>  
-       <OneOption optionId={item.id} name={item.name} image={item.image} key={index} index={index} setPublishes={setPublishes} publishes={publishes}  /> )}
-          <S.ContainerOption  onClick={getAll} >
-              <S.OptionName  >Todas</S.OptionName>
-     </S.ContainerOption>
-       </S.Container>
-    </>)
+
+      setOptions([...promise.data])
+
+
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
+
+
+  async function getAll() {
+    setPublishes([])
+    try {
+
+      const promise = await axios.get(`${API_URI}publish`)
+
+      setPublishes([...promise.data])
+
+
+    } catch (error) {
+    }
+  }
+
+
+  return (<>
+    <S.Container>
+      {options.map((item, index) =>
+        <OneOption optionId={item.id} name={item.name} key={index} index={index} setPublishes={setPublishes} />)}
+      <S.ContainerOption onClick={getAll} >
+        <S.OptionName  >Todas</S.OptionName>
+      </S.ContainerOption>
+    </S.Container>
+  </>)
 
 }
 

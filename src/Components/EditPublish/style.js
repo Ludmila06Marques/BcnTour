@@ -46,7 +46,7 @@ border-radius: 8px;
 border: none;
 background-color:${({theme})=> theme.colorBlack};
 margin-bottom:7px;
-color:${({theme})=> theme.colorSignUp};
+color:white;
 :hover{
   cursor: pointer;
 }
@@ -99,7 +99,7 @@ margin-top: 100px;
 export const Photo=styled.div`
 img{
 
-width: 150px;
+width: 250px;
 height: auto;
 }
 `
@@ -107,7 +107,7 @@ export const AskRate=styled.h1`
 
 
 font-size: 20px;
-color:${({theme})=> theme.colorBlack};
+color:${({theme})=> theme.colorSignUp};
 text-align: center;
 margin-bottom: 10px;
 

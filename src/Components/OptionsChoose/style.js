@@ -55,6 +55,6 @@ border:${({theme})=> theme.borderOption};
 
 export const Actividad=styled.h1`
 font-size: 20px;
-color:${({theme})=> theme.colorBlack};
+color:${({theme})=> theme.colorWhite};
 `
 

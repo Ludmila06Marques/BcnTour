@@ -9,12 +9,13 @@ import { useNavigate } from "react-router-dom"
 export default function Edit(){
 
 
-    const {countries , login , setCountries , setLogin}= useContext(appContext)
+    const { login , setLogin , API_URI , token } = useContext(appContext)
     const [name , setName]=useState("")
     const [country , setCountry]=useState("")
     const [urlImage , setUrlImage]=useState("")
     const [view , setView]=useState(false)
     const [chooseOption , setChooseOption]=useState("")
+    const [countries , setCountries]=useState([])
 
 
     const navigate = useNavigate()
@@ -23,7 +24,7 @@ export default function Edit(){
     useEffect(async ()=>{
       try {
               
-        const promise= await axios.get(`http://localhost:5000/user/${login.id}` )  
+        const promise= await axios.get(`${API_URI}user/${login.id}` )  
    
       setLogin(promise.data)
      
@@ -52,10 +53,14 @@ export default function Edit(){
                     name
                     
             }      
-         
+            const headers={
+                headers:{
+              Authorization:`Bearer ${token}`
+              }
+             }
             
             try {
-                const promise= await axios.put(`http://localhost:5000/userName/${login.id}` , body)  
+                const promise= await axios.put(`${API_URI}userName/${login.id}` ,headers, body)  
                 setName("")
             
               
@@ -69,10 +74,14 @@ export default function Edit(){
                     urlImage
                     
             }      
-         
+            const headers={
+                headers:{
+              Authorization:`Bearer ${token}`
+              }
+             }
             
             try {
-                const promise= await axios.put(`http://localhost:5000/userPhoto/${login.id}` , body)  
+                const promise= await axios.put(`${API_URI}userPhoto/${login.id}` ,headers, body)  
               
                setUrlImage("")
               
@@ -86,10 +95,15 @@ export default function Edit(){
                     country
                     
             }      
+            const headers={
+                headers:{
+              Authorization:`Bearer ${token}`
+              }
+             }
          
             
             try {
-                const promise= await axios.put(`http://localhost:5000/userCountry/${login.id}`, body)  
+                const promise= await axios.put(`${API_URI}userCountry/${login.id}`,headers, body)  
                
                setCountry("")
               

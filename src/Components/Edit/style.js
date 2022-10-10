@@ -121,7 +121,7 @@ height: 50px;
 font-size: 15px;
 border-radius: 8px;
 background-color: ${props => props.color ? "#D2C4E2": "transparent"};
-color: ${({theme})=> theme.colorBlack};
+color: ${({theme})=> theme.colorPurple};
 border: ${({theme})=> theme.borderOption};
 :active {
             transform: scale(1.1);

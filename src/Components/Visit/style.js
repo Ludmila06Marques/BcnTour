@@ -28,6 +28,19 @@ background-color: transparent;
         }
 
 `
+export const RateAll=styled.button`
+font-size: 15px;
+border-radius: 8px;
+background-color: transparent;
+color:${({theme})=> theme.colorWhite};
+:active {
+            transform: scale(1.1);
+            /* Scaling button to 0.98 to its original size */
+            box-shadow: 5px 5px 22px 5px rgba(0, 0, 0, 0.24);
+            /* Lowering the shadow */
+        }
+
+`
 export const VistiBox = styled.div`
 position: relative;
 display: flex;

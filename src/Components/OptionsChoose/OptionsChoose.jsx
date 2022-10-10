@@ -1,66 +1,65 @@
 import axios from "axios"
 import * as S from "./style.js"
-
 import { useContext, useEffect, useState } from "react"
 import appContext from "../../Contexts/AppContext.js"
 
-function OneOption({id  , name , setPublishes , publishes}){
- 
-    const {  choose , setChoose, setNameOption }= useContext(appContext)
-    
-   function chooseAnOPtion(){
-    setChoose(id)
-    setNameOption(name)
-    
-   }
-  
-    return(
-        
-        <S.ContainerOption   onClick={chooseAnOPtion} value={choose}>
-              <S.OptionName>{name}</S.OptionName>
-     </S.ContainerOption>
+function OneOption({ id, name, setNameOption, choose, setChoose }) {
+
+
+
+    function chooseAnOPtion() {
+        setChoose(id)
+        setNameOption(name)
+
+    }
+
+    return (
+
+        <S.ContainerOption onClick={chooseAnOPtion} value={choose}>
+            <S.OptionName>{name}</S.OptionName>
+        </S.ContainerOption>
     )
 
 }
 
-function ContainerOption({setPublishes , publishes}){
-    const { setOptions, options}= useContext(appContext)
-  
-  
-    useEffect(async ()=>{
-          
-         try  {
-            const promise=await axios.get('http://localhost:5000/option')  
-          
-          
+function ContainerOption({ setOptions, options, setNameOption, choose, setChoose }) {
+    const { API_URI } = useContext(appContext)
+
+
+    useEffect(async () => {
+
+        try {
+            const promise = await axios.get(`${API_URI}option`)
+
+
             setOptions([...promise.data])
-            
-            
+
+
         } catch (error) {
             console.log(error)
         }
-    },[])
+    }, [])
 
 
-    return(<>
+    return (<>
         <S.Container>
-    {options.map( (item , index) =>  
-       <OneOption id={item.id} name={item.name} image={item.image} key={index} setPublishes={setPublishes} publishes={publishes} item={item}/> )}
-       </S.Container>
+            {options.map((item, index) =>
+                <OneOption id={item.id} name={item.name} key={index} item={item} setNameOption={setNameOption} setChoose={setChoose} choose={choose} />)}
+        </S.Container>
     </>)
 }
 
 
-  export default function Options(){
-   
+export default function Options({ options, setOptions, nameOption, setNameOption, choose, setChoose }) {
 
-    const {  nameOption}= useContext(appContext)
-    return(<>
-  
-    <S.Actividad>Cual fue tu actividad?: {nameOption} </S.Actividad>
 
-    <ContainerOption/>
-   
+
+    return (<>
+
+        <S.Actividad>Cual fue tu actividad? {nameOption} </S.Actividad>
+
+        <ContainerOption options={options} setOptions={setOptions} setNameOption={setNameOption} setChoose={setChoose} choose={choose} />
+
     </>)
 
 }

@@ -7,7 +7,8 @@ import axios from "axios"
 
 export default function Switch(){
 
-    const {setTheme , theme , login}=useContext(appContext)
+    const {setTheme , theme , login , token }=useContext(appContext)
+    console.log(token)
 
     const [position , setPosition]=useState()
 
@@ -19,7 +20,7 @@ export default function Switch(){
         }
     },[])
 
-    function changePosition(){
+  async  function changePosition(){
     
         try {
             if(theme==='ligth'){
@@ -28,7 +29,12 @@ export default function Switch(){
                 const body={
                     mode:"dark"
                 }
-            axios.put(`http://localhost:5000/user/${login.id}` , body)
+                const headers={
+                    headers:{
+                  Authorization:`Bearer ${token}`
+                  }
+                 }
+          await  axios.put(`http://localhost:5000/user/${login.id}` , body  , headers)
             setTheme('dark')
             setPosition(true)
         }else{
@@ -36,7 +42,12 @@ export default function Switch(){
                 const body={
                     mode:"ligth"
                 }
-            axios.put(`http://localhost:5000/user/${login.id}` , body)
+                const headers={
+                    headers:{
+                  Authorization:`Bearer ${token}`
+                  }
+                 }
+            await axios.put(`http://localhost:5000/user/${login.id}`, body  , headers)
            
             setTheme('ligth')
             setPosition(false)

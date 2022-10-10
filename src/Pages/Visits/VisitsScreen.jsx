@@ -6,12 +6,13 @@ import Visit from "../../Components/Visit/Visit"
 import Loading from "../../Components/loading/Loading"
 export default function VisitsScreen(){
 
-    const{login}=useContext(appContext)
+    const{login , API_URI }=useContext(appContext)
     const [local , setLocal]=useState([])
+
     useEffect(async()=>{
         try {
             
-            const promise= await axios.get(`http://localhost:5000/userLocation/${login.id}` )  
+            const promise= await axios.get(`${API_URI}userLocation/${login.id}` )  
        
             setLocal(promise.data)
          
