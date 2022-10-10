@@ -1,49 +1,65 @@
 import axios from "axios"
 import * as S from "./style.js"
-
 import { useContext, useEffect, useState } from "react"
 import appContext from "../../Contexts/AppContext.js"
 
-function OneOption({id  , name , setPublishes , publishes}){
- 
-    const {  choose , setChoose  }= useContext(appContext)
-    
-  
-    return(
-        
-        <S.ContainerOption   onClick={()=> setChoose(`${id}`)} value={choose}>
-              <S.OptionName>{name}</S.OptionName>
-     </S.ContainerOption>
+function OneOption({ id, name, setNameOption, choose, setChoose }) {
+
+
+
+    function chooseAnOPtion() {
+        setChoose(id)
+        setNameOption(name)
+
+    }
+
+    return (
+
+        <S.ContainerOption onClick={chooseAnOPtion} value={choose}>
+            <S.OptionName>{name}</S.OptionName>
+        </S.ContainerOption>
     )
 
 }
 
+function ContainerOption({ setOptions, options, setNameOption, choose, setChoose }) {
+    const { API_URI } = useContext(appContext)
 
-  export default function Options({setPublishes , publishes}){
-    const { setOptions, options,choose}= useContext(appContext)
-  
-    useEffect(async ()=>{
-          
-         try  {
-            const promise=await axios.get('http://localhost:5000/option')  
-          
-          
+
+    useEffect(async () => {
+
+        try {
+            const promise = await axios.get(`${API_URI}option`)
+
+
             setOptions([...promise.data])
-            
-            
+
+
         } catch (error) {
             console.log(error)
         }
-    },[])
+    }, [])
+
+
+    return (<>
+        <S.Container>
+            {options.map((item, index) =>
+                <OneOption id={item.id} name={item.name} key={index} item={item} setNameOption={setNameOption} setChoose={setChoose} choose={choose} />)}
+        </S.Container>
+    </>)
+}
+
+
+export default function Options({ options, setOptions, nameOption, setNameOption, choose, setChoose }) {
 
 
 
-    return(<>
-    <S.Actividad>Actividad:${choose}</S.Actividad>
-       <S.Container>
-    {options.map( (item , index) =>  
-       <OneOption id={item.id} name={item.name} image={item.image} key={index} setPublishes={setPublishes} publishes={publishes} item={item}/> )}
-       </S.Container>
+    return (<>
+
+        <S.Actividad>Cual fue tu actividad? {nameOption} </S.Actividad>
+
+        <ContainerOption options={options} setOptions={setOptions} setNameOption={setNameOption} setChoose={setChoose} choose={choose} />
+
     </>)
 
 }

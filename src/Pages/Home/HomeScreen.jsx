@@ -1,6 +1,6 @@
 import * as S from "./style.js"
 import axios from "axios"
-import { useEffect , useContext} from "react"
+import { useEffect , useContext , useState} from "react"
 import NavBarr from "../../Components/NavBarr/NavBarr.jsx"
 import SideBarr from "../../Components/SideBarr/SideBarr.jsx"
 import Options from "../../Components/Options/Options.jsx"
@@ -16,13 +16,14 @@ import Loading from "../../Components/loading/Loading.jsx"
 
 export default function HomeScreen(){
  
-    const {setPublishes , publishes, login  }=useContext(appContext)
+    const {login , API_URI }=useContext(appContext)
 
-  
+    const [publishes , setPublishes ]=useState([])
+ 
     useEffect(async()=>{
         try {
 
-            const promise= await axios.get(`http://localhost:5000/publish` )  
+            const promise= await axios.get(`${API_URI}publish` )  
      
           setPublishes([...promise.data])
          
@@ -30,7 +31,7 @@ export default function HomeScreen(){
         } catch (error) {
             console.log(error)
         }
-    },[])
+    },[publishes])
 
     const arrayReverse= publishes.reverse()
 
@@ -39,11 +40,11 @@ export default function HomeScreen(){
     <S.ContainerHome>
     <NavBarr/>
     <SideBarr login={login} />
-    <Options publishes={publishes} setPublishes={setPublishes} />
+    <Options setPublishes={setPublishes} />
   
   
    {arrayReverse.length === 0 ? <Loading/> :  publishes.map((item , index)=>  
-    <Publish key={index} id={item.id} setPublishes={setPublishes} login={login} coment={item.coment} urlImage={item.urlImage} localizationName={item.localization.name}  rateNote={item.rateNote} user={item.user} longitude={item.localization.longitude} latitude={item.localization.latitude}/>)}
+    <Publish key={index} id={item.id}  coment={item.coment} urlImage={item.urlImage} localizationName={item.localization.name}  rateNote={item.rateNote} user={item.user} longitude={item.localization.longitude} latitude={item.localization.latitude}/>)}
 
    <More/>
     </S.ContainerHome>

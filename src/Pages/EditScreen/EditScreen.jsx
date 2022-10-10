@@ -2,17 +2,15 @@ import ProfileNavBarr from "../../Components/ProfileNavBarr/ProfileNavBarr.jsx"
 import * as S from "./style.js"
 import appContext from "../../Contexts/AppContext.js"
 import { useContext } from "react"
-import manutencao from "../../img/manut.png"
+import Edit from "../../Components/Edit/Edit.jsx"
 
 
-export default function PlacesScreen(){
+export default function EditScreen(){
 
     const {login}=useContext(appContext)
 
    return(<>  
    <ProfileNavBarr id={login.id} />
-   <S.Container>
-    <img src={manutencao}/>
-   </S.Container>
+   <Edit/>
    </>)
 }

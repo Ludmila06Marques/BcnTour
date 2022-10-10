@@ -41,6 +41,7 @@ border-radius: 8px;
 font-size: 15px;
 width: 100px;
 height: 45px;
+background-color:  "f1e3fc";
 color:${({theme})=> theme.colorBlack};
 font-weight: bold;
 border:${({theme})=> theme.borderOption};

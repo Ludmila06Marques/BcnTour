@@ -9,7 +9,8 @@ const LigthTheme={
    borderOption:'solid 1px #94a5cb;',
    colorLightDark:'white',
    colorIcons:'white',
-   colorSignUp:'#94a5cb'
+   colorSignUp:'#94a5cb',
+   colorPurple:'#94a5cb',
    
 }
 
@@ -24,7 +25,8 @@ const DarkTheme={
     colorNavbar:'#292929',
     borderOption:'solid 1px #292929;',
     colorIcons:'#292929',
-    colorSignUp:'white'
+    colorSignUp:'white',
+    colorPurple:'white',
 }
 
 const Themes={

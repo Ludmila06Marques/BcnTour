@@ -11,3 +11,11 @@ font-weight: bold;
 color: ${({theme})=> theme.colorSignUp};
 
 `
+
+export const Instruction=styled.h1`
+margin: 20px 20px 10px 10px;
+font-size: 20px;
+font-weight: bold;
+color: ${({theme})=> theme.colorSignUp};
+
+`

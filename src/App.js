@@ -5,57 +5,49 @@ import LoginScreen from "./Pages/Login/LoginScreen.jsx"
 import SignUpScreen from "./Pages/SignUp/SignUpScreen.jsx"
 import HomeScreen from "./Pages/Home/HomeScreen.jsx"
 import ProfileScreen from "./Pages/Profile/ProfileScreen.jsx"
-
 import AboutUsScreen from "./Pages/AboutUs/AboutUsScreen.jsx"
 import SettingsScreen from "./Pages/Settings/SettingsScreen.jsx"
 import HelpScreen from "./Pages/Help/HelpScreen.jsx"
-
 import PublishScreen from "./Pages/Publish/PublishScreen.jsx"
 import VisitsScreen from "./Pages/Visits/VisitsScreen.jsx"
 import PlacesScreen from "./Pages/Places/PlacesScreen.jsx"
 import Themes from "./Components/Theme/Theme.js"
 import {ThemeProvider} from "styled-components"
 import Global from "./Components/Theme/Global.js"
+import EditScreen from "./Pages/EditScreen/EditScreen.jsx"
+import EditPublishScreen from "./Pages/EditPublishScreen.jsx/EditPublishScreen.jsx"
 
 export default function App(){
-    //login
-   const [email, setEmail]=useState("")
-   const [password, setPassword]=useState("")
-   const [name , setName]=useState("")
-   const [countries , setCountries]=useState([])
-   const [country , setCountry]=useState("")
-   const [urlImage , setUrlImage]=useState("")
+   
+
+  
+  //Login do usuario
     const [token , setToken]=useState()
     const [login , setLogin]=useState()
 
     //layout
     const [view , setView]=useState(false)
-    const[viewNavBarr , setViewNavBarr]=useState("list-outline")
-    const [appear , setAppear]=useState(false)
-    const [desappear , setDesappear]=useState(true)
+    const [viewNavBarr, setViewNavBarr] = useState("list-outline")
+    const [appear, setAppear] = useState(false)
+    const [desappear, setDesappear] = useState(true)
 
-    //Publishes
-  
-    const  [options , setOptions]=useState([])
-    const [userPublishes , setUserPublishes ]=useState([])
-    const [publishes , setPublishes ]=useState([])
-    const [user , setUser]=useState([])
-    const [choose , setChoose]=useState("")
+    //Local
     const [localizationName , setLocalizationName]=useState("")
     const [latitude , setLatitude ]=useState(0)
     const [longitude , setLongitude ]=useState(0)
     const [autocomplete , setAutocomplete]=useState("")
 
-    //Options
-    const  [optionName , setOptionName]=useState("")
-
-
     //Theme
     const  [theme , setTheme]=useState("ligth")
 
+    //API
+    const API_URI="http://localhost:5000/"
+
+ 
+
     return(<>
     
-    <appContext.Provider value={{email , setEmail , password , setPassword , appear, setAppear,desappear,setDesappear, view , setView , setViewNavBarr , viewNavBarr, name , setName , token , setToken , name , setName    , country , setCountry , urlImage , setUrlImage , options , setOptions , login , setLogin , publishes , setPublishes , user , setUser , userPublishes , setUserPublishes ,choose , setChoose , setCountries , countries , latitude , setLatitude , longitude , setLongitude  , setLocalizationName , localizationName,optionName,setOptionName , theme , setTheme  , autocomplete , setAutocomplete}} >
+    <appContext.Provider value={{ API_URI,  view , setView , token , setToken  , login , setLogin , theme , setTheme  , autocomplete , setAutocomplete  , viewNavBarr , setViewNavBarr, appear, setAppear , desappear ,setDesappear ,latitude , setLatitude , longitude , setLongitude , setLocalizationName , localizationName}} >
     <ThemeProvider theme={Themes[theme]} >
         <Global/>
    <BrowserRouter>
@@ -71,6 +63,8 @@ export default function App(){
         <Route  path="/publish" element={<PublishScreen/>}></Route> 
         <Route  path="/visits" element={<VisitsScreen/>}></Route> 
         <Route  path="/places" element={<PlacesScreen/>}></Route> 
+        <Route  path="/edit/:userId" element={<EditScreen/>}></Route> 
+        <Route  path="/editPublish/:publishId" element={<EditPublishScreen/>}></Route> 
        
     </Routes>    
     </BrowserRouter>

@@ -79,6 +79,16 @@ width: 100%;
 
 `
 
+export const AskRate=styled.h1`
+
+
+font-size: 20px;
+color:${({theme})=> theme.colorBlack};
+
+
+
+
+`
 export const Container=styled.button`
 display: flex;
 justify-content: center;
@@ -98,4 +108,9 @@ color: ${({theme})=> theme.colorWhite};
             box-shadow: 5px 5px 22px 5px rgba(0, 0, 0, 0.24);
             /* Lowering the shadow */
         }
+`
+export const ContainerMap=styled.div`
+width:100vw;
+height: 300px;
+
 `
