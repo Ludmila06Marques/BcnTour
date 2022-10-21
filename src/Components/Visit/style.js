@@ -32,7 +32,7 @@ export const RateAll=styled.button`
 font-size: 15px;
 border-radius: 8px;
 background-color: transparent;
-color:${({theme})=> theme.colorWhite};
+color:${({theme})=> theme.colorBlack};
 :active {
             transform: scale(1.1);
             /* Scaling button to 0.98 to its original size */
